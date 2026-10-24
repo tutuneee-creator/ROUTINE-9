@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROUTINE-9 NOTES | DAROGA/POLICE/BPSC/BSSC | YT-DREAMDOSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a0f2b; --navy2:#141c47; --indigo:#1d2761; --gold:#f2b705; --amber:#ff7a29;
+  --green:#2fd48a; --red:#ff4d5e; --cream:#f6f1e4; --dim:#aab0d6;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; min-height:100vh; font-family:'Hind',sans-serif;
+  background:radial-gradient(circle at 20% 0%,var(--indigo),var(--navy) 60%);
+  color:var(--cream); display:flex; flex-direction:column; align-items:center;
+}
+h1,h2,h3,.disp{font-family:'Baloo 2',cursive;}
+.watermark{
+  position:sticky; top:0; z-index:50; width:100%; text-align:center;
+  background:linear-gradient(90deg,var(--gold),var(--amber));
+  color:#1a0f00; font-family:'Baloo 2',cursive; font-weight:800;
+  letter-spacing:.5px; text-transform:uppercase; padding:10px 8px;
+  font-size:clamp(13px,2.4vw,18px); box-shadow:0 4px 14px rgba(0,0,0,.4);
+}
+.wrap{width:100%; max-width:760px; padding:18px 16px 60px;}
+.hero{text-align:center; padding:28px 10px 10px;}
+.hero h1{font-size:clamp(28px,6vw,42px); margin:6px 0; color:var(--gold); text-shadow:0 2px 0 rgba(0,0,0,.3);}
+.hero p{color:var(--dim); font-size:15px; margin:4px 0 20px;}
+.card{
+  background:linear-gradient(160deg,var(--navy2),var(--indigo));
+  border:1px solid rgba(242,183,5,.25); border-radius:18px; padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35); margin-bottom:16px;
+}
+.btn{
+  display:inline-block; cursor:pointer; border:none; border-radius:12px;
+  padding:14px 26px; font-family:'Baloo 2',cursive; font-weight:700; font-size:17px;
+  background:linear-gradient(90deg,var(--gold),var(--amber)); color:#1a0f00;
+  box-shadow:0 6px 0 #b5790a; transition:transform .1s;
+}
+.btn:active{transform:translateY(4px); box-shadow:0 2px 0 #b5790a;}
+.btn.secondary{background:transparent; color:var(--gold); border:2px solid var(--gold); box-shadow:none;}
+.center{text-align:center;}
+input[type=text]{
+  width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06); color:var(--cream); font-size:16px; margin-bottom:14px;
+}
+.taghead{
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:10px; flex-wrap:wrap;
+}
+.tagline{
+  font-family:'Baloo 2',cursive; font-weight:700; color:var(--amber); font-size:18px;
+}
+.cat-tag{
+  display:inline-block; background:rgba(242,183,5,.15); border:1px solid rgba(242,183,5,.4);
+  color:var(--gold); padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600;
+}
+.progress{color:var(--dim); font-size:13px;}
+.timer-wrap{display:flex; justify-content:center; margin:6px 0 14px;}
+.timer-ring{
+  --pct:100; width:78px; height:78px; border-radius:50%;
+  background:conic-gradient(var(--green) calc(var(--pct)*1%), rgba(255,255,255,.08) 0);
+  display:flex; align-items:center; justify-content:center; transition:background .3s linear;
+}
+.timer-ring.warn{background:conic-gradient(var(--red) calc(var(--pct)*1%), rgba(255,255,255,.08) 0);}
+.timer-inner{
+  width:62px; height:62px; border-radius:50%; background:var(--navy2);
+  display:flex; align-items:center; justify-content:center; font-family:'Baloo 2',cursive;
+  font-weight:700; font-size:20px; color:var(--cream);
+}
+.motivate{text-align:center; color:var(--dim); font-size:14px; margin:0 0 14px; font-style:italic;}
+.qtext{font-size:17px; line-height:1.55; margin-bottom:16px;}
+.qtext b{color:var(--gold);}
+.matchbox{display:flex; gap:14px; margin-bottom:16px; flex-wrap:wrap;}
+.matchcol{flex:1; min-width:140px; background:rgba(255,255,255,.04); border-radius:10px; padding:10px;}
+.matchcol h4{margin:0 0 8px; color:var(--amber); font-size:14px;}
+.matchrow{font-size:14px; padding:4px 0; border-bottom:1px dashed rgba(255,255,255,.1);}
+.options{display:flex; flex-direction:column; gap:10px;}
+.opt{
+  text-align:left; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15);
+  color:var(--cream); border-radius:12px; padding:13px 16px; font-size:15px; cursor:pointer;
+  transition:.15s; line-height:1.4;
+}
+.opt:hover{background:rgba(242,183,5,.12); border-color:var(--gold);}
+.opt.correct{background:rgba(47,212,138,.2); border-color:var(--green); color:#eafff5;}
+.opt.wrong{background:rgba(255,77,94,.2); border-color:var(--red); color:#ffecee;}
+.opt[disabled]{cursor:default;}
+.result{margin-top:16px; padding:14px; border-radius:12px; font-size:15px; line-height:1.5;}
+.result.ok{background:rgba(47,212,138,.12); border:1px solid rgba(47,212,138,.4);}
+.result.bad{background:rgba(255,77,94,.12); border:1px solid rgba(255,77,94,.4);}
+.result h3{margin:0 0 8px; font-family:'Baloo 2',cursive;}
+.result.ok h3{color:var(--green);}
+.result.bad h3{color:var(--red);}
+.next-row{margin-top:16px; text-align:center;}
+.overlay{
+  position:fixed; inset:0; background:rgba(5,8,25,.85); display:flex; align-items:center;
+  justify-content:center; z-index:100; padding:20px;
+}
+.board{
+  background:linear-gradient(160deg,var(--navy2),var(--indigo)); border:2px solid var(--gold);
+  border-radius:20px; padding:30px 26px; max-width:380px; width:100%; text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.board h2{color:var(--gold); margin:0 0 14px;}
+.board .stat{display:flex; justify-content:space-between; font-size:16px; margin:8px 0;}
+.board .comment{margin:16px 0; color:var(--amber); font-weight:600;}
+.scorebar{
+  display:flex; justify-content:space-between; color:var(--dim); font-size:13px; margin-bottom:10px;
+}
+.scorebar b{color:var(--gold);}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="watermark">🔥 YT-DREAMDOSE (ROUTINE-9): DAROGA/POLICE/BPSC/BSSC 🔥</div>
+<div class="wrap" id="app"></div>
+
+<script>
+function opt(en,hi){return {en,hi};}
+function Q(cat,en,hi,options,correct,exp_en,exp_hi,matchTable,tip){
+  return {cat,en,hi,options,correct,exp_en,exp_hi,matchTable:matchTable||null,tip:tip||null};
+}
+function stOpt(s){
+  const n=s.split(",");
+  if(n.length===4)return opt("1, 2, 3 and 4","1, 2, 3 और 4");
+  const last=n.pop();
+  const en=n.length?n.join(", ")+" and "+last+" only":last+" only";
+  const hi=n.length?"केवल "+n.join(", ")+" और "+last:"केवल "+last;
+  return opt(en,hi);
+}
+function SQ(cat,tEn,tHi,sEn,sHi,ans,correct,expEn,expHi,tip){
+  const en=tEn+"<br>"+sEn.map((s,i)=>(i+1)+". "+s).join("<br>")+"<br>Which of the statements given above are correct?";
+  const hi=tHi+"<br>"+sHi.map((s,i)=>(i+1)+". "+s).join("<br>")+"<br>उपर्युक्त में से कौन-से कथन सही हैं?";
+  return Q(cat,en,hi,ans.map(stOpt),correct,expEn,expHi,null,tip);
+}
+function MQ(cat,tEn,tHi,left,right,ans,correct,expEn,expHi,tip){
+  return Q(cat,tEn,tHi,ans.map(a=>opt(a.replace(/,/g,", "),a.replace(/,/g,", "))),correct,expEn,expHi,{left:left,right:right},tip);
+}
+const MH="Modern History / आधुनिक इतिहास";
+const BD="Human Digestion & Nutrition / पाचन एवं पोषण";
+const PK="Mountain Peaks / पर्वत चोटियां";
+const IND="Indian Industries / भारतीय उद्योग";
+const HS="Biodiversity Hotspots / जैव विविधता हॉटस्पॉट";
+const SP="Sports & Playing Areas / खेल एवं खेल मैदान";
+function P(cat,en,hi,arr,c,eEn,eHi,tip){return Q(cat,en,hi,arr.map(x=>{const p=x.split(" / ");return opt(p[0],p.length>1?p.slice(1).join(" / "):p[0]);}),c,eEn,eHi,null,tip);}
+const TOTAL_TIME=120;
+
+const QUESTIONS=[
+
+SQ(MH,"Statements regarding the Revolt of 1857:","1857 के विद्रोह के संबंध में कथन:",
+ ["It began on May 10, 1857 at Meerut by the sepoys.","Bahadur Shah II was proclaimed the Emperor of India.","Mangal Pandey revolted at Barrackpore on March 29, 1857.","Lord Dalhousie was the Governor-General during the revolt."],
+ ["यह 10 मई 1857 को मेरठ में सिपाहियों द्वारा शुरू हुआ था।","बहादुर शाह द्वितीय को भारत का सम्राट घोषित किया गया था।","मंगल पांडे ने 29 मार्च 1857 को बैरकपुर में विद्रोह किया था।","विद्रोह के समय लॉर्ड डलहौजी गवर्नर-जनरल थे।"],
+ ["1,2,3","3,4","1,2,3,4","1,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because the Governor-General of India during the Revolt of 1857 was Lord Canning.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि 1857 के विद्रोह के समय भारत के गवर्नर-जनरल लॉर्ड कैनिंग थे।",
+ "Dalhousie (till 1856) → Canning (1856-62) during the Revolt."),
+
+SQ(MH,"Statements regarding the Partition of Bengal (1905):","1905 के बंगाल विभाजन के संबंध में कथन:",
+ ["It was announced by Lord Curzon in July 1905.","It came into official effect on October 16, 1905.","October 16, 1905 was observed as Raksha Bandhan & Day of Mourning.","Partition was annulled in 1911 by Lord Hardinge II."],
+ ["इसकी घोषणा जुलाई 1905 में लॉर्ड कर्जन द्वारा की गई थी।","यह 16 अक्टूबर 1905 को आधिकारिक रूप से प्रभावी हुआ।","16 अक्टूबर 1905 को रक्षाबंधन और शोक दिवस के रूप में मनाया गया।","विभाजन को 1911 में लॉर्ड हार्डिंग द्वितीय द्वारा रद्द कर दिया गया था।"],
+ ["1,2","3,4","1,2,3,4","1,2,4"],2,
+ "All four statements are correct. Lord Curzon implemented the Partition and Lord Hardinge II annulled it in 1911.",
+ "सभी चारों कथन सही हैं। लॉर्ड कर्जन ने विभाजन लागू किया और 1911 में लॉर्ड हार्डिंग द्वितीय ने इसे रद्द किया।",
+ "Partition 1905 → Swadeshi & Boycott → annulled 1911."),
+
+SQ(MH,"Statements regarding the Non-Cooperation Movement:","असहयोग आंदोलन के संबंध में कथन:",
+ ["It was formally launched on August 1, 1920.","Lokmanya Tilak passed away on the day of its launch.","It was ratified at the Nagpur Congress session in December 1920.","Jawaharlal Nehru suspended the movement after the Chauri Chaura incident."],
+ ["इसे औपचारिक रूप से 1 अगस्त 1920 को शुरू किया गया था।","इसके शुभारंभ के दिन ही लोकमान्य तिलक का निधन हो गया था।","इसे दिसंबर 1920 में नागपुर कांग्रेस अधिवेशन में मंजूर किया गया था।","जवाहरलाल नेहरू ने चौरी चौरा घटना के बाद आंदोलन स्थगित कर दिया था।"],
+ ["1,3","2,4","1,2,3","1,2,3,4"],2,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because it was Mahatma Gandhi who decided to suspend the movement after the Chauri Chaura incident.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि चौरी चौरा घटना के बाद आंदोलन स्थगित करने का फैसला महात्मा गांधी ने लिया था।",
+ "Chauri Chaura (Feb 1922) → Gandhi suspends the movement."),
+
+SQ(MH,"Statements regarding the Civil Disobedience Movement:","सविनय अवज्ञा आंदोलन के संबंध में कथन:",
+ ["Dandi March began from Sabarmati Ashram on March 12, 1930.","Gandhi reached Dandi and broke the Salt Law on April 6, 1930.","Total 78 trusted volunteers accompanied Gandhi on the march.","It was temporarily suspended after the Gandhi-Irwin Pact in March 1931."],
+ ["दांडी मार्च 12 मार्च 1930 को साबरमती आश्रम से शुरू हुआ था।","गांधीजी 6 अप्रैल 1930 को दांडी पहुंचे और नमक कानून तोड़ा।","इस मार्च में गांधीजी के साथ कुल 78 विश्वस्त स्वयंसेवक थे।","मार्च 1931 में गांधी-इरविन समझौते के बाद इसे अस्थायी रूप से निलंबित कर दिया गया था।"],
+ ["1,2","1,2,3,4","3,4","1,2,4"],1,
+ "All four statements are fully correct.",
+ "सभी चारों कथन पूरी तरह सही हैं।",
+ "Dandi: 12 Mar → 6 Apr 1930, 78 volunteers."),
+
+SQ(MH,"Statements regarding the Quit India Movement:","भारत छोड़ो आंदोलन के संबंध में कथन:",
+ ["'Quit India' resolution was passed at Gowalia Tank, Bombay on August 8, 1942.","Gandhi gave the famous slogan 'Do or Die'.","Subhash Chandra Bose was arrested in Bombay under 'Operation Zero Hour' on August 9.","Aruna Asaf Ali hoisted the Indian flag at Gowalia Tank on August 9."],
+ ["'भारत छोड़ो' प्रस्ताव 8 अगस्त 1942 को गोवालिया टैंक, बॉम्बे में पारित हुआ था।","गांधीजी ने 'करो या मरो' का प्रसिद्ध नारा दिया।","सुभाष चंद्र बोस को 9 अगस्त को 'ऑपरेशन जीरो आवर' के तहत बॉम्बे में गिरफ्तार किया गया।","अरुणा आसफ अली ने 9 अगस्त को गोवालिया टैंक पर भारतीय ध्वज फहराया।"],
+ ["1,2,4","1,2","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because Subhash Chandra Bose had already left India in 1941.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि सुभाष चंद्र बोस 1941 में ही विदेश निकल चुके थे।",
+ "Quit India: 8 Aug 1942 resolution, 9 Aug flag by Aruna Asaf Ali."),
+
+SQ(MH,"Statements regarding the Indian National Army (INA):","आजाद हिंद फौज (INA) के संबंध में कथन:",
+ ["INA was originally founded by Captain Mohan Singh in 1942.","Subhash Chandra Bose took over its leadership in Singapore in July 1943.","Bose formed the Provisional Government of Free India in October 1943.","Lord Mountbatten served as the defense lawyer for INA officers during Red Fort Trials."],
+ ["INA की स्थापना मूल रूप से कैप्टन मोहन सिंह ने 1942 में की थी।","सुभाष चंद्र बोस ने जुलाई 1943 में सिंगापुर में इसका नेतृत्व संभाला।","बोस ने अक्टूबर 1943 में स्वतंत्र भारत की अनंतिम सरकार का गठन किया।","लाल किला मुकदमे के दौरान लॉर्ड माउंटबेटन ने INA अधिकारियों के बचाव वकील के रूप में कार्य किया।"],
+ ["1,2","1,2,3","3,4","1,2,3,4"],1,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because the defence lawyers were Bhulabhai Desai, Jawaharlal Nehru, Tej Bahadur Sapru and others.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि बचाव पक्ष के वकील भूलाभाई देसाई, जवाहरलाल नेहरू, तेज बहादुर सप्रू आदि थे।",
+ "INA defence: Bhulabhai Desai led the team."),
+
+SQ(MH,"Statements regarding Constitutional Milestone Dates:","संवैधानिक मील के पत्थर की तिथियों के संबंध में कथन:",
+ ["Constituent Assembly held its first meeting on December 9, 1946.","Dr. Rajendra Prasad was elected permanent President on December 11, 1946.","Objective Resolution was moved by Nehru on December 13, 1946.","Indian Constitution was adopted on November 26, 1949."],
+ ["संविधान सभा की पहली बैठक 9 दिसंबर 1946 को हुई थी।","डॉ. राजेंद्र प्रसाद को 11 दिसंबर 1946 को स्थायी अध्यक्ष चुना गया था।","नेहरू द्वारा 13 दिसंबर 1946 को उद्देश्य प्रस्ताव पेश किया गया था।","भारतीय संविधान 26 नवंबर 1949 को अपनाया गया था।"],
+ ["1,3","2,4","1,2,3,4","1,2,3"],2,
+ "All four statements are correct.",
+ "चारों कथन सही हैं।",
+ "9 Dec 1946 first meeting · 26 Nov 1949 adopted."),
+
+SQ(MH,"Statements regarding the Cabinet Mission & Independence:","कैबिनेट मिशन और स्वतंत्रता के संबंध में कथन:",
+ ["Cabinet Mission arrived in India in March 1946.","Direct Action Day was observed by Muslim League on August 16, 1946.","Interim Government was formed under Sardar Patel on September 2, 1946.","Indian Independence Act received Royal Assent on July 18, 1947."],
+ ["कैबिनेट मिशन मार्च 1946 में भारत आया था।","मुस्लिम लीग द्वारा 16 अगस्त 1946 को प्रत्यक्ष कार्यवाही दिवस मनाया गया।","2 सितंबर 1946 को सरदार पटेल के नेतृत्व में अंतरिम सरकार का गठन हुआ।","भारतीय स्वतंत्रता अधिनियम को 18 जुलाई 1947 को शाही स्वीकृति मिली।"],
+ ["1,2,4","1,2","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because the Interim Government was headed by Jawaharlal Nehru.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि अंतरिम सरकार का नेतृत्व जवाहरलाल नेहरू कर रहे थे।",
+ "Interim Govt (2 Sep 1946) → Nehru as Vice-President of Executive Council."),
+
+MQ(MH,"Match List-I (Socio-Religious Organization) with List-II (Year of Foundation):","सूची-I (सामाजिक-धार्मिक संगठन) को सूची-II (स्थापना वर्ष) से सुमेलित करें:",
+ ["A. Atmiya Sabha / आत्मीय सभा","B. Brahmo Samaj / ब्रह्म समाज","C. Arya Samaj / आर्य समाज","D. Ramakrishna Mission / रामकृष्ण मिशन"],
+ ["1. 1814","2. 1828","3. 1875","4. 1897"],
+ ["A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-1,B-3,C-2,D-4","A-4,B-2,C-1,D-3"],0,
+ "Atmiya Sabha (1814), Brahmo Samaj (1828), Arya Samaj (1875), Ramakrishna Mission (1897).",
+ "आत्मीय सभा (1814), ब्रह्म समाज (1828), आर्य समाज (1875), रामकृष्ण मिशन (1897)।",
+ "Order: 1814 → 1828 → 1875 → 1897."),
+
+MQ(MH,"Match List-I (Major War/Battle) with List-II (Year of Occurrence):","सूची-I (प्रमुख युद्ध/लड़ाई) को सूची-II (वर्ष) से सुमेलित करें:",
+ ["A. Battle of Plassey / प्लासी का युद्ध","B. Battle of Buxar / बक्सर का युद्ध","C. Third Battle of Panipat / पानीपत की तीसरी लड़ाई","D. First Anglo-Sikh War / प्रथम आंग्ल-सिख युद्ध"],
+ ["1. 1757","2. 1764","3. 1761","4. 1845-46"],
+ ["A-2,B-1,C-4,D-3","A-1,B-2,C-3,D-4","A-1,B-3,C-2,D-4","A-3,B-4,C-1,D-2"],1,
+ "Plassey (1757), Buxar (1764), Third Battle of Panipat (1761), First Anglo-Sikh War (1845-46).",
+ "प्लासी (1757), बक्सर (1764), पानीपत की तीसरी लड़ाई (1761), प्रथम आंग्ल-सिख युद्ध (1845-46)।",
+ "Plassey 1757 → Panipat-III 1761 → Buxar 1764."),
+
+MQ(MH,"Match List-I (Nationalist Movement / Event) with List-II (Year):","सूची-I (राष्ट्रीय आंदोलन / घटना) को सूची-II (वर्ष) से सुमेलित करें:",
+ ["A. Partition of Bengal / बंगाल विभाजन","B. Surat Split of INC / कांग्रेस का सूरत विभाजन","C. Muslim League Formation / मुस्लिम लीग का गठन","D. Morley-Minto Reforms / मार्ले-मिंटो सुधार"],
+ ["1. 1905","2. 1907","3. 1906","4. 1909"],
+ ["A-1,B-2,C-3,D-4","A-1,B-3,C-2,D-4","A-2,B-1,C-4,D-3","A-4,B-2,C-1,D-3"],1,
+ "Partition of Bengal (1905), Muslim League formation (1906), Surat Split (1907), Morley-Minto Reforms (1909).",
+ "बंगाल विभाजन (1905), मुस्लिम लीग का गठन (1906), सूरत विभाजन (1907), मार्ले-मिंटो सुधार (1909)।",
+ "Sequence: 1905 → 1906 → 1907 → 1909."),
+
+MQ(MH,"Match List-I (Gandhian Mass Movement) with List-II (Year of Launch):","सूची-I (गांधीवादी जन आंदोलन) को सूची-II (प्रारंभ वर्ष) से सुमेलित करें:",
+ ["A. Champaran Satyagraha / चंपारण सत्याग्रह","B. Non-Cooperation Movement / असहयोग आंदोलन","C. Civil Disobedience Movement / सविनय अवज्ञा आंदोलन","D. Quit India Movement / भारत छोड़ो आंदोलन"],
+ ["1. 1917","2. 1920","3. 1930","4. 1942"],
+ ["A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-1,B-3,C-2,D-4","A-4,B-2,C-1,D-3"],0,
+ "Champaran (1917), Non-Cooperation (1920), Civil Disobedience (1930), Quit India (1942).",
+ "चंपारण (1917), असहयोग आंदोलन (1920), सविनय अवज्ञा (1930), भारत छोड़ो (1942)।",
+ "Gandhi's movements: 1917 → 1920 → 1930 → 1942."),
+
+MQ(MH,"Match List-I (Pre-Independence Political Party) with List-II (Year of Formation):","सूची-I (स्वतंत्रता-पूर्व राजनीतिक दल) को सूची-II (स्थापना वर्ष) से सुमेलित करें:",
+ ["A. Ghadar Party / गदर पार्टी","B. Swaraj Party / स्वराज पार्टी","C. Congress Socialist Party / कांग्रेस सोशलिस्ट पार्टी","D. Forward Bloc / फॉरवर्ड ब्लॉक"],
+ ["1. 1913","2. 1923","3. 1934","4. 1939"],
+ ["A-2,B-1,C-4,D-3","A-1,B-2,C-3,D-4","A-1,B-3,C-2,D-4","A-3,B-4,C-1,D-2"],1,
+ "Ghadar Party (1913 - San Francisco), Swaraj Party (1923 - C.R. Das & Motilal Nehru), Congress Socialist Party (1934 - JP & Narendra Dev), Forward Bloc (1939 - Subhash Chandra Bose).",
+ "गदर पार्टी (1913 - सैन फ्रांसिस्को), स्वराज पार्टी (1923 - सी.आर. दास व मोतीलाल नेहरू), कांग्रेस सोशलिस्ट पार्टी (1934 - जेपी व नरेंद्र देव), फॉरवर्ड ब्लॉक (1939 - सुभाष चंद्र बोस)।",
+ "Ghadar 1913 · Swaraj 1923 · CSP 1934 · Forward Bloc 1939."),
+
+MQ(MH,"Match List-I (Revolutionary Organization) with List-II (Year of Establishment):","सूची-I (क्रांतिकारी संगठन) को सूची-II (स्थापना वर्ष) से सुमेलित करें:",
+ ["A. Anushilan Samiti (Dhaka) / अनुशीलन समिति","B. Abhinav Bharat Society / अभिनव भारत समाज","C. Hindustan Republican Association (HRA)","D. Hindustan Socialist Republican Association (HSRA)"],
+ ["1. 1905","2. 1904","3. 1924","4. 1928"],
+ ["A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-1,B-3,C-2,D-4","A-4,B-2,C-1,D-3"],0,
+ "Dhaka Anushilan Samiti (1905 - Pulin Bihari Das), Abhinav Bharat (1904 - Savarkar), HRA (1924 - Sachindranath Sanyal), HSRA (1928 - Chandrashekhar Azad & Bhagat Singh).",
+ "ढाका अनुशीलन समिति (1905 - पुलिन बिहारी दास), अभिनव भारत (1904 - सावरकर), HRA (1924 - सचिंद्रनाथ सान्याल), HSRA (1928 - चंद्रशेखर आजाद व भगत सिंह)।",
+ "HRA 1924 → renamed HSRA 1928."),
+
+MQ(MH,"Match List-I (Peasant / Tribal Revolt) with List-II (Year):","सूची-I (किसान / जनजातीय विद्रोह) को सूची-II (वर्ष) से सुमेलित करें:",
+ ["A. Santhal Rebellion / संथाल विद्रोह","B. Indigo Revolt / नील विद्रोह","C. Moplah Rebellion / मोपला विद्रोह","D. Bardoli Satyagraha / बारडोली सत्याग्रह"],
+ ["1. 1855-56","2. 1859-60","3. 1921","4. 1928"],
+ ["A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-1,B-3,C-2,D-4","A-3,B-4,C-1,D-2"],0,
+ "Santhal Rebellion (1855-56), Indigo Revolt (1859-60), Moplah Rebellion (1921 - Malabar), Bardoli Satyagraha (1928 - Vallabhbhai Patel).",
+ "संथाल विद्रोह (1855-56), नील विद्रोह (1859-60), मोपला विद्रोह (1921 - मालाबार), बारडोली सत्याग्रह (1928 - वल्लभभाई पटेल)।",
+ "Bardoli 1928 → Vallabhbhai gets title 'Sardar'."),
+
+MQ(MH,"Match List-I (British Colonial Commission/Act) with List-II (Year):","सूची-I (ब्रिटिश आयोग/अधिनियम) को सूची-II (वर्ष) से सुमेलित करें:",
+ ["A. Vernacular Press Act / वर्नाक्युलर प्रेस एक्ट","B. Ilbert Bill Controversy / इल्बर्ट बिल विवाद","C. Simon Commission Formation / साइमन कमीशन का गठन","D. Poona Pact / पूना समझौता"],
+ ["1. 1878","2. 1883","3. 1927","4. 1932"],
+ ["A-2,B-1,C-4,D-3","A-1,B-2,C-3,D-4","A-1,B-3,C-2,D-4","A-4,B-2,C-1,D-3"],1,
+ "Vernacular Press Act (1878 - Lytton), Ilbert Bill (1883 - Ripon), Simon Commission formation (1927), Poona Pact (1932 - Gandhi & Ambedkar).",
+ "वर्नाक्युलर प्रेस एक्ट (1878 - लिटन), इल्बर्ट बिल (1883 - रिपन), साइमन कमीशन का गठन (1927), पूना समझौता (1932 - गांधी व अंबेडकर)।",
+ "Lytton 1878 · Ripon 1883 · Simon 1927 · Poona 1932."),
+
+P(MH,"In which year was the Treaty of Allahabad signed between Shah Alam II and Robert Clive following the Battle of Buxar?","बक्सर के युद्ध के बाद शाह आलम द्वितीय और रॉबर्ट क्लाइव के बीच इलाहाबाद की संधि किस वर्ष हस्ताक्षरित हुई थी?",["1761","1765","1772","1784"],1,
+ "After the Battle of Buxar (1764), the Treaty of Allahabad was signed in August 1765, giving the British the Diwani (revenue collection rights) of Bengal, Bihar and Orissa.",
+ "बक्सर के युद्ध (1764) के बाद अगस्त 1765 में इलाहाबाद की संधि हुई, जिससे अंग्रेजों को बंगाल, बिहार और उड़ीसा की दीवानी (कर वसूली) का अधिकार मिला।",
+ "Buxar 1764 → Treaty of Allahabad 1765 → Diwani rights."),
+
+P(MH,"The Regulating Act, which laid the foundation of central administration in British India, was passed in which year?","ब्रिटिश भारत में केंद्रीय प्रशासन की नींव रखने वाला रेगुलेटिंग एक्ट किस वर्ष पारित किया गया था?",["1773","1784","1793","1813"],0,
+ "The Regulating Act of 1773 began British Parliament's control over the East India Company's administration and created the Supreme Court at Calcutta.",
+ "1773 के रेगुलेटिंग एक्ट के तहत ईस्ट इंडिया कंपनी के प्रशासन पर ब्रिटिश संसद का नियंत्रण शुरू हुआ और कलकत्ता में उच्चतम न्यायालय बना।",
+ "Regulating Act 1773 → Pitt's India Act 1784."),
+
+P(MH,"In which year was the Permanent Settlement (Zamindari System) introduced in Bengal by Lord Cornwallis?","लॉर्ड कॉर्नवालिस द्वारा बंगाल में इस्तमरारी बंदोबस्त (स्थायी बंदोबस्त) किस वर्ष लागू किया गया था?",["1773","1793","1813","1833"],1,
+ "In 1793 Lord Cornwallis introduced the Permanent Settlement, giving zamindars permanent ownership rights over land.",
+ "1793 में लॉर्ड कॉर्नवालिस ने स्थायी बंदोबस्त लागू किया, जिससे जमींदारों को भूमि का स्थायी मालिकाना हक दिया गया।",
+ "Permanent Settlement = 1793 (Bengal, Cornwallis)."),
+
+P(MH,"In which year did Mahatma Gandhi return to India from South Africa?","महात्मा गांधी दक्षिण अफ्रीका से भारत किस वर्ष लौटे थे?",["1912","1915","1917","1919"],1,
+ "Gandhiji returned to India from South Africa on 9 January 1915. In memory of this day 'Pravasi Bharatiya Diwas' is celebrated every year.",
+ "गांधीजी 9 जनवरी 1915 को दक्षिण अफ्रीका से भारत लौटे। इस दिन की स्मृति में प्रतिवर्ष 'प्रवासी भारतीय दिवस' मनाया जाता है।",
+ "9 January 1915 = Pravasi Bharatiya Diwas."),
+
+P(MH,"The tragic Jallianwala Bagh Massacre took place on April 13 of which year?","दुखद जलियांवाला बाग हत्याकांड किस वर्ष 13 अप्रैल को हुआ था?",["1916","1919","1920","1922"],1,
+ "On 13 April 1919 (Baisakhi day) General Dyer fired indiscriminately on a peaceful gathering at Jallianwala Bagh, Amritsar.",
+ "13 अप्रैल 1919 (बैसाखी के दिन) अमृतसर के जलियांवाला बाग में शांतिपूर्ण सभा पर जनरल डायर ने अंधाधुंध गोलियाँ चलवाई थीं।",
+ "13 April 1919 → Hunter Commission was set up to inquire."),
+
+P(MH,"The Gandhi-Irwin Pact was signed in March of which year?","गांधी-इरविन समझौते पर किस वर्ष मार्च में हस्ताक्षर किए गए थे?",["1929","1931","1932","1935"],1,
+ "On 5 March 1931 the pact was signed in Delhi between Gandhiji and Viceroy Irwin, after which the Civil Disobedience Movement was suspended.",
+ "5 मार्च 1931 को गांधीजी और वायसराय इरविन के बीच दिल्ली में समझौता हुआ, जिसके बाद सविनय अवज्ञा आंदोलन स्थगित किया गया।",
+ "Gandhi-Irwin Pact: 5 March 1931 (Delhi Pact)."),
+
+P(MH,"In which year was the Government of India Act passed, establishing provincial autonomy?","प्रांतीय स्वायत्तता स्थापित करने वाला भारत सरकार अधिनियम किस वर्ष पारित किया गया था?",["1919","1927","1935","1942"],2,
+ "The Government of India Act, 1935 ended dyarchy in the provinces and introduced provincial autonomy.",
+ "1935 के भारत सरकार अधिनियम द्वारा प्रांतों में द्वैध शासन समाप्त कर प्रांतीय स्वायत्तता लागू की गई थी।",
+ "1919 = Dyarchy in provinces; 1935 = Provincial autonomy."),
+
+P(MH,"In which year was the All India Kisan Sabha established in Lucknow under Swami Sahajanand Saraswati?","स्वामी सहजानंद सरस्वती के नेतृत्व में लखनऊ में अखिल भारतीय किसान सभा की स्थापना किस वर्ष हुई थी?",["1929","1936","1938","1942"],1,
+ "The All India Kisan Sabha was formed at Lucknow in April 1936 by Swami Sahajanand Saraswati (President) and N.G. Ranga (General Secretary).",
+ "स्वामी सहजानंद सरस्वती (अध्यक्ष) और एन.जी. रंगा (महासचिव) द्वारा अप्रैल 1936 में लखनऊ में अखिल भारतीय किसान सभा बनाई गई।",
+ "Swami Sahajanand = Bihar's peasant leader (Bihta, Patna)."),
+
+P(MH,"In which year did the Cripps Mission arrive in India with proposals for constitutional reforms?","संवैधानिक सुधारों के प्रस्तावों के साथ क्रिप्स मिशन किस वर्ष भारत आया था?",["1940","1942","1944","1946"],1,
+ "In March 1942 the Cripps Mission came to India under Sir Stafford Cripps; Gandhiji called it a 'post-dated cheque'.",
+ "मार्च 1942 में सर स्टैफोर्ड क्रिप्स के नेतृत्व में क्रिप्स मिशन भारत आया, जिसे गांधीजी ने 'उत्तर-दिनांकित चेक' (Post-dated cheque) कहा था।",
+ "Cripps Mission 1942 → 'Post-dated cheque on a crashing bank'."),
+
+P(MH,"Lord Mountbatten announced the 'Mountbatten Plan' (3rd June Plan) for Partition in which year?","लॉर्ड माउंटबेटन ने विभाजन के लिए 'माउंटबेटन योजना' (3 जून योजना) की घोषणा किस वर्ष की थी?",["1945","1946","1947","1948"],2,
+ "On 3 June 1947 Lord Mountbatten announced the Partition of India and the creation of two independent dominions (India and Pakistan).",
+ "3 जून 1947 को लॉर्ड माउंटबेटन ने भारत विभाजन और दो स्वतंत्र अधिराज्यों (भारत व पाकिस्तान) के निर्माण की घोषणा की थी।",
+ "3 June 1947 plan → 15 August 1947 Independence."),
+
+P(MH,"In which year was the Servants of India Society founded by Gopal Krishna Gokhale?","गोपाल कृष्ण गोखले द्वारा सर्वेंट्स ऑफ इंडिया सोसाइटी (भारत सेवक समाज) की स्थापना किस वर्ष की गई थी?",["1899","1905","1911","1915"],1,
+ "Gopal Krishna Gokhale founded the 'Servants of India Society' in Pune on 12 June 1905.",
+ "गोपाल कृष्ण गोखले ने 12 जून 1905 को पुणे में 'सर्वेंट्स ऑफ इंडिया सोसाइटी' की स्थापना की थी।",
+ "Gokhale = Gandhi's political guru; society founded 1905."),
+
+P(MH,"In which year did the Kakori Train Action (Conspiracy) take place?","काकोरी ट्रेन एक्शन (षड्यंत्र) किस वर्ष हुआ था?",["1922","1925","1928","1930"],1,
+ "On 9 August 1925 HRA revolutionaries (Ram Prasad Bismil, Ashfaqulla Khan and others) looted government treasure at Kakori.",
+ "9 अगस्त 1925 को HRA के क्रांतिकारियों (रामप्रसाद बिस्मिल, अशफ़ाक उल्ला ख़ाँ आदि) ने काकोरी में सरकारी खजाना लूटा था।",
+ "Kakori: 9 Aug 1925, HRA."),
+
+P(MH,"In which year did the Chittagong Armoury Raid take place under the leadership of Surya Sen (Master Da)?","सूर्य सेन (मास्टर दा) के नेतृत्व में चटगाँव शस्त्रागार धावा किस वर्ष हुआ था?",["1928","1930","1932","1934"],1,
+ "On 18 April 1930 revolutionaries led by Surya Sen (Master Da) captured the government armoury at Chittagong.",
+ "18 अप्रैल 1930 को सूर्य सेन (मास्टर दा) के नेतृत्व में क्रांतिकारियों ने चटगाँव के सरकारी शस्त्रागार पर कब्जा कर लिया था।",
+ "Chittagong Armoury Raid = 18 April 1930."),
+
+P(MH,"In which year was the Royal Indian Navy (RIN) Mutiny sparked in Bombay aboard HMIS Talwar?","HMIS तलवार जहाज पर बॉम्बे में शाही भारतीय नौसेना (RIN) का विद्रोह किस वर्ष हुआ था?",["1942","1945","1946","1947"],2,
+ "On 18 February 1946 Indian sailors on 'HMIS Talwar' in Bombay revolted against racial discrimination and poor food.",
+ "18 फरवरी 1946 को बॉम्बे में 'HMIS तलवार' जहाज पर भारतीय नौसैनिकों ने नस्लीय भेदभाव और खराब भोजन के खिलाफ विद्रोह कर दिया था।",
+ "RIN Mutiny Feb 1946 → pushed British to speed up transfer of power."),
+
+SQ(BD,"Statements regarding Carbohydrate Digestion in humans:","मानव में कार्बोहाइड्रेट के पाचन के संबंध में कथन:",
+ ["Salivary amylase breaks down starch into maltose in the buccal cavity.","Salivary amylase works optimally at an acidic pH of 1.8.","Nearly 30% of starch is hydrolyzed in the oral cavity.","Pancreatic amylase continues starch digestion in the small intestine."],
+ ["लार एमाइलेज मुख गुहा में स्टार्च को माल्टोज में तोड़ता है।","लार एमाइलेज 1.8 के अम्लीय pH पर अनुकूलतम कार्य करता है।","मौखिक गुहा में लगभग 30% स्टार्च का जलअपघटन होता है।","अग्न्याशयी एमाइलेज छोटी आंत में स्टार्च पाचन को जारी रखता है।"],
+ ["1,3,4","1,2","2,3","1,2,3,4"],0,
+ "Statements 1, 3 and 4 are correct. Statement 2 is incorrect because salivary amylase (ptyalin) operates at an optimum pH of about 6.8, whereas pH 1.8 belongs to gastric juice (HCl) in the stomach.",
+ "कथन 1, 3 और 4 सही हैं। कथन 2 गलत है क्योंकि लार एमाइलेज (टायलिन) का अनुकूलतम pH 6.8 होता है। pH 1.8 आमाशय के गैस्ट्रिक रस (HCl) का होता है।",
+ "Salivary amylase pH ≈ 6.8 (neutral); gastric juice pH ≈ 1.8."),
+
+SQ(BD,"Statements regarding Stomach Secretions and Digestion:","आमाशय के स्राव और पाचन के संबंध में कथन:",
+ ["Oxyntic (Parietal) cells secrete Hydrochloric Acid (HCl) and Intrinsic Factor.","Pepsinogen is activated into active Pepsin by the action of HCl.","Mucus and Bicarbonates protect the stomach lining from excoriation by HCl.","Renin is a milk-protein digesting enzyme found in adult human stomach."],
+ ["ऑक्सीन्टिक (पैराइटल) कोशिकाएं हाइड्रोक्लोरिक एसिड (HCl) और आंतरिक कारक स्रावित करती हैं।","पेप्सिनोजेन, HCl की क्रिया द्वारा सक्रिय पेप्सिन में परिवर्तित होता है।","श्लेष्मा (Mucus) और बाइकार्बोनेट आमाशय की परत को HCl के कटाव से बचाते हैं।","रेनिन वयस्क मानव आमाशय में पाया जाने वाला दूध-प्रोटीन पाचन एंजाइम है।"],
+ ["1,2,3","2,4","1,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Rennin, the milk-protein digesting enzyme, is present in the gastric juice of infants but absent or negligible in human adults.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि दूध-पाचक एंजाइम रेन्निन (Rennin) केवल शिशुओं के जठर रस में पाया जाता है, वयस्कों में यह अनुपस्थित या नगण्य होता है।",
+ "Rennin → infants only; adults use pepsin."),
+
+SQ(BD,"Statements regarding Liver and Bile Juice:","यकृत और पित्त रस के संबंध में कथन:",
+ ["Bile juice contains digestive enzymes like lipase and trypsin.","Bile salts help in the emulsification of fats.","Bile juice activates pancreatic lipases in the small intestine.","Bilirubin and Biliverdin are the primary bile pigments."],
+ ["पित्त रस में लाइपेस और ट्रिप्सिन जैसे पाचक एंजाइम होते हैं।","पित्त लवण वसा के इमल्सीकरण (Emulsification) में मदद करते हैं।","पित्त रस छोटी आंत में अग्न्याशयी लाइपेस को सक्रिय करता है।","बिलीरुबिन और बिलीवर्डिन प्राथमिक पित्त वर्णक हैं।"],
+ ["2,3,4","1,2","1,3","1,2,3,4"],0,
+ "Statements 2, 3 and 4 are correct. Statement 1 is incorrect because bile juice contains no digestive enzymes; it only emulsifies fats and activates lipases.",
+ "कथन 2, 3 और 4 सही हैं। कथन 1 गलत है क्योंकि पित्त रस में कोई पाचक एंजाइम नहीं होता; यह केवल वसा का इमल्सीकरण करता है।",
+ "Bile = no enzymes, but essential for fat digestion."),
+
+SQ(BD,"Statements regarding Pancreatic Juice:","अग्न्याशयी रस के संबंध में कथन:",
+ ["Trypsinogen is converted into active Trypsin by Enterokinase.","Pancreatic juice contains inactive enzymes: Trypsinogen, Chymotrypsinogen, and Procarboxypeptidase.","Enterokinase is secreted by the pancreatic acinar cells.","Activated Trypsin activates other inactive enzymes in pancreatic juice."],
+ ["ट्रिप्सिनोजेन को एंटरोकाइनेज द्वारा सक्रिय ट्रिप्सिन में बदला जाता है।","अग्न्याशयी रस में निष्क्रिय एंजाइम: ट्रिप्सिनोजेन, काइमोट्रिप्सिनोजेन और प्रोकार्बोक्सीपेप्टिडेज होते हैं।","एंटरोकाइनेज का स्राव अग्न्याशय की एसिनर कोशिकाओं द्वारा होता है।","सक्रिय ट्रिप्सिन अग्न्याशयी रस के अन्य निष्क्रिय एंजाइमों को सक्रिय करता है।"],
+ ["1,2,4","2,3","1,3","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because Enterokinase is secreted by the intestinal mucosa, not by pancreatic acinar cells.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि एंटरोकाइनेज (Enterokinase) आंत्र म्यूकोसा द्वारा स्रावित होता है, अग्न्याशय द्वारा नहीं।",
+ "Enterokinase: intestinal mucosa → Trypsinogen → Trypsin."),
+
+SQ(BD,"Statements regarding Absorption in the Small Intestine:","छोटी आंत में अवशोषण के संबंध में कथन:",
+ ["Villi and Microvilli greatly increase the surface area for absorption.","Glucose and Amino acids are absorbed primarily by simple diffusion only.","Fatty acids and Glycerol are absorbed into Lacteals as Chylomicrons.","Small intestine is the principal organ for absorption of digested nutrients."],
+ ["विली और माइक्रोविली अवशोषण के लिए सतह के क्षेत्रफल को अत्यधिक बढ़ाते हैं।","ग्लूकोज और अमीनो एसिड मुख्य रूप से केवल सरल विसरण द्वारा अवशोषित होते हैं।","वसा अम्ल और ग्लिसरॉल काइलोमाइक्रोन के रूप में लैक्टियल्स (Lacteals) में अवशोषित होते हैं।","छोटी आंत पचे हुए पोषक तत्वों के अवशोषण का मुख्य अंग है।"],
+ ["1,3,4","1,2","2,4","1,2,3,4"],0,
+ "Statements 1, 3 and 4 are correct. Statement 2 is incorrect because glucose and amino acids are absorbed via facilitated diffusion and active transport, not simple diffusion alone.",
+ "कथन 1, 3 और 4 सही हैं। कथन 2 गलत है क्योंकि ग्लूकोज और अमीनो एसिड का अवशोषण सुसाध्य विसरण तथा सक्रिय परिवहन (Active transport) द्वारा होता है।",
+ "Fats → lacteals (lymph); glucose/amino acids → blood capillaries."),
+
+SQ(BD,"Statements regarding Fat Soluble and Water Soluble Vitamins:","वसा-घुलनशील और जल-घुलनशील विटामिनों के संबंध में कथन:",
+ ["Vitamins A, D, E, and K are fat-soluble vitamins.","Vitamin C and B-complex vitamins are water-soluble vitamins.","Vitamin B12 is stored in the human liver for several years.","Excess water-soluble vitamins are readily stored in adipose tissue."],
+ ["विटामिन A, D, E और K वसा-घुलनशील विटामिन हैं।","विटामिन C और B-कॉम्प्लेक्स विटामिन जल-घुलनशील विटामिन हैं।","विटामिन B12 मानव यकृत में कई वर्षों तक संग्रहीत रहता है।","अत्यधिक जल-घुलनशील विटामिन एडिपोज ऊतक में आसानी से संग्रहीत होते हैं।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because water-soluble vitamins (except B12) are not stored in the body and are excreted in urine.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि जल-घुलनशील विटामिन (B12 को छोड़कर) शरीर में संचित नहीं होते और मूत्र के साथ बाहर निकल जाते हैं।",
+ "Fat-soluble: A D E K (stored). Water-soluble: B & C (excreted; B12 exception)."),
+
+SQ(BD,"Statements regarding Human Teeth Structure and Dental Formula:","मानव दांतों की संरचना और दंत सूत्र के संबंध में कथन:",
+ ["Adult human dental formula is 2123 / 2123.","Human dentition is Thecodont, Diphyodont, and Heterodont.","Enamel is the hardest chewing surface of teeth, made of calcium phosphate.","Milk teeth in human children include 8 Premolars."],
+ ["वयस्क मानव का दंत सूत्र 2123 / 2123 होता है।","मानव दंतविन्यास थीकोडॉन्ट, डिफीओडॉन्ट और हेटेरोडॉन्ट होता है।","इनेमल दांतों की सबसे कठोर सतह है, जो कैल्शियम फॉस्फेट से बनी होती है।","मानव बच्चों में दूध के दांतों में 8 अग्रचर्वणक (Premolars) शामिल होते हैं।"],
+ ["1,2,3","1,4","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Premolars are completely absent in the primary (milk) dentition of human children (formula 2102 / 2102).",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि बच्चों के दूध के दांतों (2102 / 2102) में अग्रचर्वणक (Premolars) अनुपस्थित होते हैं।",
+ "Adult: 32 teeth (2123); milk teeth: 20 (2102)."),
+
+SQ(BD,"Statements regarding Functions of the Large Intestine:","बड़ी आंत के कार्यों के संबंध में कथन:",
+ ["Significant digestion of proteins and carbohydrates occurs in the colon.","Large intestine absorbs water, minerals, and certain drugs.","Mucus secreted by large intestine lubricates waste for easy passage.","Symbiotic bacteria in colon synthesize Vitamin K and some B-complex vitamins."],
+ ["कोलन में प्रोटीन और कार्बोहाइड्रेट का महत्वपूर्ण पाचन होता है।","बड़ी आंत जल, खनिजों और कुछ दवाओं का अवशोषण करती है।","बड़ी आंत द्वारा स्रावित श्लेष्मा अपशिष्ट को सुगम निकास के लिए चिकना बनाती है।","कोलन में सहजीवी जीवाणु विटामिन K और कुछ B-कॉम्प्लेक्स विटामिन का संश्लेषण करते हैं।"],
+ ["2,3,4","1,2","1,3","1,2,3,4"],0,
+ "Statements 2, 3 and 4 are correct. Statement 1 is incorrect because no significant digestive activity occurs in the large intestine.",
+ "कथन 2, 3 और 4 सही हैं। कथन 1 गलत है क्योंकि बड़ी आंत में कोई महत्वपूर्ण पाचक क्रिया नहीं होती।",
+ "Large intestine = absorption of water + bacterial vitamin K, not digestion."),
+
+SQ(BD,"Statements regarding Nutritional Disorders:","पोषण संबंधी विकारों के संबंध में कथन:",
+ ["Kwashiorkor is caused by severe deficiency of proteins accompanied by calorie deficiency.","Marasmus is caused by simultaneous deficiency of proteins and total calories in infants under 1 year.","Oedema and swelling of body parts is characteristically seen in Kwashiorkor.","Extensive tissue protein loss and extreme emaciation occurs in Marasmus."],
+ ["क्वाशियोरकोर कैलोरी की कमी के साथ प्रोटीन की गंभीर कमी के कारण होता है।","मरास्मस 1 वर्ष से कम उम्र के शिशुओं में प्रोटीन और कुल कैलोरी दोनों की कमी से होता है।","शरीर के अंगों में सूजन (Oedema) विशिष्ट रूप से क्वाशियोरकोर में देखी जाती है।","मरास्मस में व्यापक ऊतक प्रोटीन का नुकसान और अत्यधिक दुबलापन होता है।"],
+ ["2,3,4","1,2","1,3","1,2,3,4"],0,
+ "Statements 2, 3 and 4 are correct. Statement 1 is incorrect because Kwashiorkor is caused by protein deficiency without calorie deficiency, whereas Marasmus results from combined protein and calorie deficiency.",
+ "कथन 2, 3 और 4 सही हैं। कथन 1 गलत है क्योंकि क्वाशियोरकोर केवल प्रोटीन की कमी से होता है (बिना कैलोरी कमी के), जबकि मरास्मस प्रोटीन और कैलोरी दोनों की कमी से होता है।",
+ "Kwashiorkor = protein only (oedema); Marasmus = protein + calories (emaciation)."),
+
+SQ(BD,"Statements regarding Gastrointestinal Hormones:","जठरांत्र संबंधी हार्मोन के संबंध में कथन:",
+ ["Gastrin stimulates the secretion of HCl and Pepsinogen from gastric glands.","Secretin acts on exocrine pancreas and stimulates secretion of water and bicarbonate ions.","Cholecystokinin (CCK) stimulates the contraction of gallbladder to release bile.","Gastric Inhibitory Peptide (GIP) accelerates gastric secretion and motility."],
+ ["गैस्ट्रिन जठर ग्रंथियों से HCl और पेप्सिनोजेन के स्राव को उत्तेजित करता है।","सिक्रेटिन बाह्यस्रावी अग्न्याशय पर कार्य करता है और जल व बाइकार्बोनेट आयनों के स्राव को उत्तेजित करता है।","कोलेसिस्टोकाइनिन (CCK) पित्ताशय को संकुचित करके पित्त रस जारी करने के लिए उत्तेजित करता है।","गैस्ट्रिक इनहिबिटरी पेप्टाइड (GIP) जठरीय स्राव और गतिशीलता को तेज करता है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because GIP inhibits gastric secretion and motility, rather than accelerating it.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि GIP जठरीय स्राव और गतिशीलता को संदमित (Inhibit) करता है, तेज नहीं करता।",
+ "GIP = Gastric INHIBITORY peptide → inhibits."),
+
+SQ(BD,"Statements regarding Vitamin Deficiency Diseases:","विटामिन की कमी से होने वाले रोगों के संबंध में कथन:",
+ ["Deficiency of Vitamin B1 (Thiamine) leads to Beriberi.","Deficiency of Vitamin C (Ascorbic acid) causes Scurvy with bleeding gums.","Deficiency of Vitamin D causes Rickets in children and Osteomalacia in adults.","Deficiency of Vitamin E causes Pernicious Anaemia."],
+ ["विटामिन B1 (थायामिन) की कमी से बेरीबेरी रोग होता है।","विटामिन C (एस्कॉर्बिक एसिड) की कमी से मसूड़ों से खून बहने वाला स्कर्वी रोग होता है।","विटामिन D की कमी से बच्चों में रिकेट्स और वयस्कों में ऑस्टियोमलेशिया होता है।","विटामिन E की कमी से परनिशियस एनीमिया (घातक रक्ताल्पता) होता है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Pernicious Anaemia is caused by Vitamin B12 deficiency.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि परनिशियस एनीमिया विटामिन B12 की कमी से होता है।",
+ "Pernicious anaemia = B12 (needs Intrinsic Factor)."),
+
+SQ(BD,"Statements regarding Mineral Nutrition in Humans:","मानव में खनिज पोषण के संबंध में कथन:",
+ ["Iron is an essential constituent of Hemoglobin and Myoglobin.","Iodine is required for the synthesis of Thyroid hormones (T3 and T4).","Calcium and Phosphorus are required for bone and tooth formation.","Sodium and Potassium play no role in nerve impulse transmission."],
+ ["आयरन हीमोग्लोबिन और मायोग्लोबिन का एक अनिवार्य घटक है।","आयोडीन थायराइड हार्मोन (T3 और T4) के संश्लेषण के लिए आवश्यक है।","कैल्शियम और फास्फोरस हड्डियों और दांतों के निर्माण के लिए आवश्यक है।","सोडियम और पोटेशियम तंत्रिका आवेग संचरण में कोई भूमिका नहीं निभाते हैं।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Sodium and Potassium play vital roles in nerve impulse transmission.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि सोडियम और पोटेशियम तंत्रिका आवेग संचरण (Nerve impulse transmission) में महत्वपूर्ण भूमिका निभाते हैं।",
+ "Na⁺/K⁺ pump → nerve impulse."),
+
+SQ(BD,"Statements regarding Peristalsis and Deglutition:","क्रमाकुंचन (Peristalsis) और निगलने (Deglutition) के संबंध में कथन:",
+ ["Deglutition refers to the swallowing of food bolus from mouth into esophagus.","Peristalsis involves alternate wave-like contraction and relaxation of gut muscles.","Epiglottis prevents the entry of food into the larynx during swallowing.","Significant chemical digestion of food takes place inside the Esophagus."],
+ ["निगलने (Deglutition) का अर्थ भोजन के बोलस को मुंह से ग्रसिका में ले जाना है।","क्रमाकुंचन में आहारनाल की मांसपेशियों का वैकल्पिक तरंग-समान संकुचन और शिथिलन शामिल है।","एपिग्लॉटिस निगलने के दौरान भोजन को स्वरयंत्र (Larynx) में प्रवेश करने से रोकता है।","ग्रसिका (Esophagus) के भीतर भोजन का महत्वपूर्ण रासायनिक पाचन होता है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because no digestive enzymes are secreted in the esophagus.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि ग्रसिका (Esophagus) में कोई पाचक एंजाइम स्रावित नहीं होता।",
+ "Esophagus = transport only (peristalsis), no enzyme secretion."),
+
+MQ(BD,"Match List-I (Digestive Enzyme) with List-II (Substrate / Product):","सूची-I (पाचक एंजाइम) को सूची-II (क्रियाधार / उत्पाद) से सुमेलित करें:",
+ ["A. Salivary Amylase / टायलीन","B. Pepsin / पेप्सिन","C. Rennin / रेन्निन","D. Steapsin (Pancreatic Lipase) / स्टीएप्सिन"],
+ ["1. Converts Milk casein into Paracasein / दूध के केसीन को पैराकेसीन में बदलना","2. Hydrolyzes Starch into Maltose / स्टार्च को माल्टोज में अपघटित करना","3. Converts Proteins into Peptones / प्रोटीन को पेप्टोन्स में बदलना","4. Hydrolyzes Triglycerides into Fatty acids & Glycerol / ट्राइग्लिसराइड्स का अपघटन"],
+ ["A-2,B-3,C-1,D-4","A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-4,B-3,C-2,D-1"],0,
+ "Salivary Amylase hydrolyzes starch into maltose (A-2); Pepsin converts proteins into peptones (B-3); Rennin curdles milk casein (C-1); Steapsin breaks down lipids into fatty acids and glycerol (D-4).",
+ "टायलीन स्टार्च को माल्टोज में तोड़ता है (A-2); पेप्सिन प्रोटीन को पेप्टोन्स में बदलता है (B-3); रेन्निन दूध के केसीन को जमाता है (C-1); अग्न्याशयी लाइपेस वसा को फैटी एसिड/ग्लिसरॉल में तोड़ता है (D-4)।",
+ "Amylase→starch · Pepsin→protein · Rennin→casein · Steapsin→fat."),
+
+MQ(BD,"Match List-I (Vitamin Chemical Name) with List-II (Deficiency Disease):","सूची-I (विटामिन का रासायनिक नाम) को सूची-II (कमी से होने वाला रोग) से सुमेलित करें:",
+ ["A. Retinol (Vit A) / रेटिनॉल","B. Calciferol (Vit D) / कैल्सीफेरॉल","C. Ascorbic Acid (Vit C) / एस्कॉर्बिक एसिड","D. Tocopherol (Vit E) / टोकोफेरॉल"],
+ ["1. Scurvy / स्कर्वी","2. Night Blindness (Nyctalopia) / रतौंधी","3. Rickets / रिकेट्स","4. Reduced Fertility / जनन क्षमता में कमी"],
+ ["A-2,B-3,C-1,D-4","A-1,B-2,C-3,D-4","A-3,B-4,C-1,D-2","A-2,B-1,C-4,D-3"],0,
+ "Retinol/Vit A causes Night Blindness (A-2); Calciferol/Vit D causes Rickets (B-3); Ascorbic Acid/Vit C causes Scurvy (C-1); Tocopherol/Vit E leads to reduced fertility (D-4).",
+ "रेटिनॉल/Vit A (रतौंधी → 2); कैल्सीफेरॉल/Vit D (रिकेट्स → 3); एस्कॉर्बिक एसिड/Vit C (स्कर्वी → 1); टोकोफेरॉल/Vit E (जनन क्षमता कमी → 4)।",
+ "A→night blindness · D→rickets · C→scurvy · E→fertility."),
+
+MQ(BD,"Match List-I (Vitamin B-Complex Name) with List-II (Chemical Name):","सूची-I (विटामिन B-कॉम्प्लेक्स) को सूची-II (रासायनिक नाम) से सुमेलित करें:",
+ ["A. Vitamin B1","B. Vitamin B2","C. Vitamin B3","D. Vitamin B12"],
+ ["1. Riboflavin / राइबोफ्लेविन","2. Niacin / निकोटिनिक एसिड","3. Cyanocobalamin / साइनोकोबालामिन","4. Thiamine / थायामिन"],
+ ["A-4,B-1,C-2,D-3","A-1,B-2,C-3,D-4","A-4,B-3,C-2,D-1","A-2,B-1,C-4,D-3"],0,
+ "Vitamin B1 is Thiamine (A-4); Vitamin B2 is Riboflavin (B-1); Vitamin B3 is Niacin (C-2); Vitamin B12 is Cyanocobalamin (D-3).",
+ "विटामिन B1 (थायामिन → 4); विटामिन B2 (राइबोफ्लेविन → 1); विटामिन B3 (नियासिन → 2); विटामिन B12 (साइनोकोबालामिन → 3)।",
+ "B1 thiamine · B2 riboflavin · B3 niacin · B12 cyanocobalamin."),
+
+MQ(BD,"Match List-I (Nutrient Type) with List-II (Calorific Value / End Product):","सूची-I (पोषक तत्व का प्रकार) को सूची-II (कैलोरी मान / अंतिम उत्पाद) से सुमेलित करें:",
+ ["A. Carbohydrates / कार्बोहाइड्रेट","B. Proteins / प्रोटीन","C. Fats (Lipids) / वसा","D. Gross Calorific Value of Fats / वसा का सकल कैलोरी मान"],
+ ["1. Amino Acids / अमीनो एसिड","2. Fatty Acids & Glycerol / वसा अम्ल व ग्लिसरॉल","3. Monosaccharides (Glucose) / ग्लूकोज","4. 9.45 kcal/g"],
+ ["A-3,B-1,C-2,D-4","A-1,B-2,C-3,D-4","A-3,B-2,C-1,D-4","A-2,B-1,C-4,D-3"],0,
+ "Carbohydrate digestion yields glucose (A-3); Protein digestion yields amino acids (B-1); Fat digestion yields fatty acids and glycerol (C-2); Fat gross calorific value is 9.45 kcal/g (D-4).",
+ "कार्बोहाइड्रेट का अंतिम उत्पाद ग्लूकोज है (A-3); प्रोटीन का अमीनो एसिड है (B-1); वसा का फैटी एसिड/ग्लिसरॉल है (C-2); वसा का ग्रॉस कैलोरी मान 9.45 kcal/g होता है (D-4)।",
+ "Carbs → glucose · Proteins → amino acids · Fats → fatty acids + glycerol."),
+
+P(BD,"Which enzyme present in human saliva has antibacterial action and prevents oral infections?","मानव लार में मौजूद कौन सा एंजाइम जीवाणुरोधी (Antibacterial) क्रिया करता है और मौखिक संक्रमण को रोकता है?",["Pepsin / पेप्सिन","Lysozyme / लाइसोसोम","Trypsin / ट्रिप्सिन","Maltase / माल्टेज"],1,
+ "Lysozyme is an antibacterial enzyme present in human saliva that breaks down bacterial cell walls to prevent infections.",
+ "लाइसोसोम (Lysozyme) लार में मौजूद एक जीवाणुरोधी एंजाइम है जो बैक्टीरिया की कोशिका भित्ति को नष्ट करके संक्रमण से बचाते हैं।",
+ "Lysozyme also found in tears — nature's antibacterial."),
+
+P(BD,"Which metal atom is structurally present at the center of Vitamin B12 (Cyanocobalamin)?","विटामिन B12 (साइनोकोबालामिन) के केंद्र में कौन सा धातु परमाणु संरचनात्मक रूप से मौजूद होता है?",["Iron (Fe) / लोहा","Cobalt (Co) / कोबाल्ट","Magnesium (Mg) / मैग्नीशियम","Copper (Cu) / तांबा"],1,
+ "Vitamin B12 contains a central Cobalt (Co) metal atom, giving it the chemical name Cyanocobalamin.",
+ "विटामिन B12 में कोबाल्ट (Cobalt) धातु पाई जाती है, इसी कारण इसका रासायनिक नाम साइनोकोबालामिन (Cyanocobalamin) है।",
+ "Only vitamin containing a metal = B12 (cobalt)."),
+
+P(BD,"Which part of the human alimentary canal is the site of maximum absorption of digested food?","मानव आहारनाल का कौन सा भाग पचे हुए भोजन के अधिकतम अवशोषण का स्थल है?",["Stomach / आमाशय","Duodenum / ग्रहणी","Jejunum and Ileum / जेजुनम और इलियम","Large Intestine / बड़ी आंत"],2,
+ "The Jejunum and Ileum of the small intestine are the main sites for nutrient absorption due to the high surface area provided by villi.",
+ "छोटी आंत के जेजुनम और इलियम (Jejunum and Ileum) भागों में विली (Villi) की उपस्थिति के कारण पचे हुए पोषक तत्वों का अधिकतम अवशोषण होता है।",
+ "Maximum absorption = small intestine (jejunum + ileum)."),
+
+P(BD,"Intrinsic Factor required for the absorption of Vitamin B12 in the gut is secreted by which stomach cells?","आंत में विटामिन B12 के अवशोषण के लिए आवश्यक कैसल का आंतरिक कारक (Intrinsic Factor) किस आमाशय कोशिका द्वारा स्रावित होता है?",["Chief Cells / चीफ कोशिकाएं","Parietal (Oxyntic) Cells / पैराइटल (ऑक्सीन्टिक) कोशिकाएं","Goblet Cells / गोब्लेट कोशिकाएं","G-cells / जी-कोशिकाएं"],1,
+ "Parietal (Oxyntic) cells secrete Hydrochloric Acid (HCl) along with Castle's Intrinsic Factor, which is essential for Vitamin B12 absorption.",
+ "आमाशय की पैराइटल (ऑक्सीन्टिक) कोशिकाएं HCl के साथ कैसल का आंतरिक कारक स्रावित करती हैं, जो विटामिन B12 अवशोषण के लिए आवश्यक है।",
+ "Parietal cells: HCl + Intrinsic Factor · Chief cells: pepsinogen."),
+
+P(BD,"What is the total number of permanent teeth in an adult human that are Diphyodont (grow twice in lifetime)?","एक वयस्क मानव में स्थायी दांतों की कुल संख्या कितनी है जो डिफीओडॉन्ट (जीवन में दो बार उगते हैं) होते हैं?",["32","20","12","8"],1,
+ "Exactly 20 teeth are Diphyodont in humans, which are replaced once after primary milk teeth shed.",
+ "मानव में 20 दांत द्विबारदंती (Diphyodont) होते हैं जो पहले दूध के दांत के रूप में आते हैं और गिरकर दोबारा उगते हैं।",
+ "Milk teeth = 20 → all replaced; 12 molars come only once."),
+
+P(BD,"Deficiency of Niacin (Vitamin B3) causes which of the following diseases characterized by 3 D's (Dermatitis, Diarrhea, Dementia)?","नियासिन (विटामिन B3) की कमी से 3 D's (त्वचाशोथ, दस्त, मनोभ्रंश) के लक्षणों वाला कौन सा रोग होता है?",["Beriberi / बेरीबेरी","Pellagra / पेलाग्रा","Anaemia / रक्ताल्पता","Goitre / घेंघा"],1,
+ "Deficiency of Vitamin B3 (Niacin) causes Pellagra, which is characterized by Dermatitis, Diarrhea, and Dementia (3 D's).",
+ "विटामिन B3 (नियासिन) की कमी से पेलाग्रा (Pellagra) रोग होता है, जिसे '3D रोग' (Dermatitis, Diarrhea, Dementia) कहा जाता है।",
+ "Pellagra = 3 D's (Dermatitis, Diarrhoea, Dementia)."),
+
+P(BD,"Which organ of the human body is known as the 'Chemical Factory' or largest gland of the body?","मानव शरीर का कौन सा अंग शरीर की 'रसायन फैक्ट्री' या सबसे बड़ी ग्रंथि के रूप में जाना जाता है?",["Pancreas / अग्न्याशय","Liver / यकृत","Thyroid / थायराइड","Spleen / प्लीहा"],1,
+ "The Liver is the largest gland in the human body (~1.2 - 1.5 kg), performing over 500 metabolic and detoxifying functions.",
+ "यकृत (Liver) मानव शरीर की सबसे बड़ी ग्रंथि (~1.2 - 1.5 kg) है। यह चयापचय और विषहरण का मुख्य केंद्र होने के कारण शरीर की केमिकल फैक्ट्री कहलाती है।",
+ "Liver = largest gland & largest internal organ."),
+
+P(BD,"What is the physiological calorific value of Carbohydrates and Proteins per gram in human body energy release?","मानव शरीर ऊर्जा मोचन में कार्बोहाइड्रेट और प्रोटीन का शारीरिक कैलोरी मान (Physiological calorific value) प्रति ग्राम कितना है?",["4.0 kcal/g","9.0 kcal/g","5.65 kcal/g","4.1 kcal/g"],0,
+ "The actual physiological calorific value in the human body for Carbohydrates and Proteins is 4.0 kcal/g.",
+ "मानव शरीर में कार्बोहाइड्रेट और प्रोटीन का वास्तविक शारीरिक कैलोरी मान 4.0 kcal/g होता है।",
+ "Carbs & proteins ≈ 4 kcal/g · fats ≈ 9 kcal/g."),
+
+P(BD,"Which specialized lymph capillaries present in the intestinal villi absorb emulsified fats (Chylomicrons)?","आंत्र विली में मौजूद कौन सी विशिष्ट लसिका केशिकाएं (Lymph capillaries) इमल्सीकृत वसा (काइलोमाइक्रोन) को अवशोषित करती हैं?",["Lacteals / लैक्टियल्स","Crypts of Lieberkühn / लिबरकुन की गुहाएं","Peyer's patches / पेयर के धब्बे","Haustra / हॉस्ट्रा"],0,
+ "Digested fats (chylomicrons) are absorbed into central lymphatic vessels in the intestinal villi called Lacteals.",
+ "वसा को काइलोमाइक्रोन के रूप में आंत्र विली के केंद्र में स्थित बड़ी लसिका वाहिकाओं में अवशोषित किया जाता है जिन्हें लैक्टियल्स (Lacteals) कहते हैं।",
+ "Lacteals = lymph vessels in villi that carry absorbed fats."),
+
+SQ(PK,"Statements regarding Kangchenjunga Peak:","कंचनजंगा पर्वत चोटी के संबंध में कथन:",
+ ["It is the highest mountain peak in India and 3rd highest in the world.","It is situated on the border between Sikkim (India) and Nepal.","It lies in the Karakoram Range of the Trans-Himalayas.","Kangchenjunga National Park is a UNESCO Mixed World Heritage site."],
+ ["यह भारत की सबसे ऊंची और दुनिया की तीसरी सबसे ऊंची पर्वत चोटी है।","यह सिक्किम (भारत) और नेपाल की सीमा पर स्थित है।","यह ट्रांस-हिमालय की काराकोरम श्रेणी में स्थित है।","कंचनजंगा राष्ट्रीय उद्यान यूनेस्को की मिश्रित विश्व धरोहर स्थल है।"],
+ ["1,2,4","1,3","2,3","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because Kangchenjunga (8,586 m) lies in the Great Himalayas, not in the Karakoram Range.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि कंचनजंगा (8,586 मीटर) महान हिमालय (Great Himalayas) श्रेणी में स्थित है, न कि काराकोरम श्रेणी में।",
+ "Kangchenjunga 8,586 m: India's highest, world's 3rd."),
+
+SQ(PK,"Statements regarding Western Ghats and Peninsular Peaks:","पश्चिमी घाट और प्रायद्वीपीय चोटियों के संबंध में कथन:",
+ ["Anamudi is the highest peak of South India and Peninsular region.","Anamudi peak is located in the Anaimalai Hills of Kerala.","Doddabetta is the highest peak of the Nilgiri Hills.","Guru Shikhar is the highest peak of the Western Ghats."],
+ ["अनामुडी दक्षिण भारत और प्रायद्वीपीय क्षेत्र की सबसे ऊंची चोटी है।","अनामुडी चोटी केरल की अन्नामलाई पहाड़ियों में स्थित है।","दोड्डाबेटा नीलगिरी पहाड़ियों की सबसे ऊंची चोटी है।","गुरु शिखर पश्चिमी घाट की सबसे ऊंची चोटी है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Guru Shikhar (1,722 m) is the highest peak of the Aravalli Range in Rajasthan, not of the Western Ghats.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि गुरु शिखर (1,722 मीटर) राजस्थान में अरावली श्रेणी की सबसे ऊंची चोटी है, न कि पश्चिमी घाट की।",
+ "Guru Shikhar (Mt Abu) = Aravalli's highest."),
+
+SQ(PK,"Statements regarding Mountain Peaks of Northern India:","उत्तरी भारत की पर्वत चोटियों के संबंध में कथन:",
+ ["K2 (Godwin-Austen) is situated in the Karakoram Range of PoK.","Nanda Devi is the highest peak located entirely within Indian territory.","Kamet peak is located in the state of Uttarakhand.","Saltoro Kangri is a high peak of the Eastern Ghats."],
+ ["K2 (गॉडविन-ऑस्टिन) पाक अधिकृत कश्मीर (PoK) की काराकोरम श्रेणी में स्थित है।","नंदा देवी पूरी तरह से भारतीय क्षेत्र में स्थित सबसे ऊंची चोटी है।","कामेट चोटी उत्तराखंड राज्य में स्थित है।","साल्तोरो कांगड़ी पूर्वी घाट की एक ऊंची चोटी है।"],
+ ["1,2,3","2,4","1,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Saltoro Kangri is in the Saltoro Range (Karakoram / Siachen region), not in the Eastern Ghats.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि साल्तोरो कांगड़ी साल्तोरो श्रेणी (काराकोरम/सियाचिन क्षेत्र) में स्थित है, न कि पूर्वी घाट में।",
+ "K2 = Karakoram; Saltoro Kangri = Siachen region."),
+
+SQ(PK,"Statements regarding Peaks of Central and Western India:","मध्य और पश्चिमी भारत की पर्वत चोटियों के संबंध में कथन:",
+ ["Dhupgarh is the highest peak of the Satpura Range in Madhya Pradesh.","Dhupgarh peak is situated on the Mahadeo Hills.","Kalsubai is the highest peak of Maharashtra.","Jindhagada Peak is the highest point of the Satpura Range."],
+ ["धूपगढ़ मध्य प्रदेश में सतपुड़ा श्रेणी की सबसे ऊंची चोटी है।","धूपगढ़ चोटी महादेव पहाड़ियों पर स्थित है।","कलसुबाई महाराष्ट्र की सबसे ऊंची चोटी है।","जिंदगड़ा चोटी सतपुड़ा श्रेणी का सर्वोच्च बिंदु है।"],
+ ["1,2,3","1,4","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Jindhagada Peak (1,690 m) is the highest point of the Eastern Ghats (Andhra Pradesh), not of the Satpura Range.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि जिंदगड़ा चोटी (1,690 मीटर) पूर्वी घाट (आंध्र प्रदेश) का सर्वोच्च बिंदु है, सतपुड़ा का नहीं।",
+ "Dhupgarh (Pachmarhi) = Satpura's highest."),
+
+MQ(PK,"Match List-I (Mountain Peak) with List-II (State / Union Territory):","सूची-I (पर्वत चोटी) को सूची-II (राज्य / केंद्र शासित प्रदेश) से सुमेलित करें:",
+ ["A. Saddle Peak / सैडल पीक","B. Sandakphu / संदकफू","C. Guru Shikhar / गुरु शिखर","D. Doddabetta / दोड्डाबेटा"],
+ ["1. Tamil Nadu / तमिलनाडु","2. Rajasthan / राजस्थान","3. Andaman & Nicobar / अंडमान और निकोबार","4. West Bengal / पश्चिम बंगाल"],
+ ["A-3,B-4,C-2,D-1","A-1,B-2,C-3,D-4","A-3,B-2,C-4,D-1","A-4,B-3,C-1,D-2"],0,
+ "Saddle Peak is the highest peak of Andaman & Nicobar (A-3); Sandakphu is the highest peak of West Bengal (B-4); Guru Shikhar is the highest peak of Rajasthan (C-2); Doddabetta is the highest peak of the Nilgiris in Tamil Nadu (D-1).",
+ "सैडल पीक अंडमान और निकोबार की सबसे ऊंची चोटी है (A-3); संदकफू पश्चिम बंगाल की सबसे ऊंची चोटी है (B-4); गुरु शिखर राजस्थान की सबसे ऊंची चोटी है (C-2); दोड्डाबेटा तमिलनाडु में नीलगिरी की सबसे ऊंची चोटी है (D-1)।",
+ "Sandakphu = highest in West Bengal."),
+
+MQ(PK,"Match List-I (Mountain Peak) with List-II (Mountain Range / Hills):","सूची-I (पर्वत चोटी) को सूची-II (पर्वत श्रेणी / पहाड़ी) से सुमेलित करें:",
+ ["A. Dhupgarh / धूपगढ़","B. Anamudi / अनामुडी","C. Guru Shikhar / गुरु शिखर","D. Nokrek / नोकरेक"],
+ ["1. Anaimalai Hills / अन्नामलाई पहाड़ियां","2. Aravalli Range / अरावली श्रेणी","3. Mahadeo / Satpura Hills / महादेव / सतपुड़ा पहाड़ियां","4. Garo Hills / गारो पहाड़ियां"],
+ ["A-3,B-1,C-2,D-4","A-1,B-2,C-3,D-4","A-3,B-2,C-1,D-4","A-4,B-3,C-2,D-1"],0,
+ "Dhupgarh lies in the Mahadeo / Satpura Hills (A-3); Anamudi in the Anaimalai Hills (B-1); Guru Shikhar in the Aravalli Range (C-2); Nokrek in the Garo Hills (D-4).",
+ "धूपगढ़ महादेव/सतपुड़ा पहाड़ियों में (A-3); अनामुडी अन्नामलाई पहाड़ियों में (B-1); गुरु शिखर अरावली श्रेणी में (C-2); नोकरेक गारो पहाड़ियों में (D-4) स्थित है।",
+ "Nokrek = Garo Hills, Meghalaya."),
+
+MQ(PK,"Match List-I (State) with List-II (Highest Mountain Peak):","सूची-I (राज्य) को सूची-II (सबसे ऊंची पर्वत चोटी) से सुमेलित करें:",
+ ["A. Nagaland / नागालैंड","B. Mizoram / मिजोरम","C. Himachal Pradesh / हिमाचल प्रदेश","D. Kerala / केरल"],
+ ["1. Phawngpui (Blue Mountain) / फावंगपुई","2. Reo Purgyil / रियो पुरग्युल","3. Saramati / सारामाटी","4. Anamudi / अनामुडी"],
+ ["A-3,B-1,C-2,D-4","A-1,B-2,C-3,D-4","A-3,B-2,C-1,D-4","A-2,B-4,C-3,D-1"],0,
+ "Nagaland's highest peak is Saramati (A-3); Mizoram's is Phawngpui / Blue Mountain (B-1); Himachal Pradesh's is Reo Purgyil (C-2); Kerala's is Anamudi (D-4).",
+ "नागालैंड की सबसे ऊंची चोटी सारामाटी है (A-3); मिजोरम की सबसे ऊंची चोटी फावंगपुई/ब्लू माउंटेन है (B-1); हिमाचल प्रदेश की सबसे ऊंची चोटी रियो पुरग्युल है (C-2); केरल की सबसे ऊंची चोटी अनामुडी है (D-4)।",
+ "State-wise highest peaks are frequent exam questions."),
+
+P(PK,"Which peak is known as the highest mountain peak of the Eastern Ghats in India?","भारत में पूर्वी घाट की सबसे ऊंची पर्वत चोटी के रूप में किसे जाना जाता है?",["Mahendragiri / महेंद्रगिरि","Jindhagada Peak / जिंदगड़ा चोटी","Arma Konda / अरमा कोंडा","Anamudi / अनामुडी"],1,
+ "Jindhagada Peak (1,690 m), located in the Araku Valley of Andhra Pradesh, is the highest peak of the Eastern Ghats. Mahendragiri (1,501 m) in Odisha is the second highest.",
+ "जिंदगड़ा चोटी (1,690 मीटर), जो आंध्र प्रदेश की अराकू घाटी में स्थित है, पूर्वी घाट की सबसे ऊंची पर्वत चोटी है। महेंद्रगिरि (1,501 मीटर) ओडिशा में स्थित दूसरी सबसे ऊंची चोटी है।",
+ "Eastern Ghats: Jindhagada (AP) 1st, Mahendragiri (Odisha) 2nd."),
+
+P(PK,"Phawngpui, also known as the 'Blue Mountain', is the highest peak of which Indian state?","'ब्लू माउंटेन' के नाम से प्रसिद्ध फावंगपुई किस भारतीय राज्य की सबसे ऊंची चोटी है?",["Meghalaya / मेघालय","Manipur / मणिपुर","Mizoram / मिजोरम","Tripura / त्रिपुरा"],2,
+ "Phawngpui (2,157 m) is the highest peak of Mizoram, known locally and administratively as the 'Blue Mountain'.",
+ "फावंगपुई (2,157 मीटर) मिजोरम की सबसे ऊंची पर्वत चोटी है, जिसे स्थानीय स्तर पर और प्रशासनिक रूप से 'ब्लू माउंटेन' के नाम से जाना जाता है।",
+ "Mizoram = Phawngpui (Blue Mountain)."),
+
+P(PK,"What is the elevation/height of Nanda Devi Peak, the highest peak located entirely within India?","पूरी तरह से भारत के भीतर स्थित सबसे ऊंची चोटी नंदा देवी की ऊंचाई कितनी है?",["8,586 m","7,816 m","8,611 m","7,756 m"],1,
+ "Nanda Devi Peak is 7,816 m high. It is located in Chamoli district, Uttarakhand, and is the highest peak entirely within Indian borders.",
+ "नंदा देवी चोटी की ऊंचाई 7,816 मीटर है। यह उत्तराखंड के चमोली जिले में स्थित है और पूरी तरह से भारतीय सीमा में स्थित सर्वोच्च चोटी है।",
+ "Kangchenjunga 8,586 m (border) vs Nanda Devi 7,816 m (entirely in India)."),
+
+SQ(IND,"Statements regarding the Iron and Steel Industry in India:","भारत में लौह एवं इस्पात उद्योग के संबंध में कथन:",
+ ["TISCO (Tata Iron and Steel Company) at Jamshedpur was established in 1907 as the first private sector steel plant.","Bhilai Steel Plant was set up in Chhattisgarh with technical assistance from the USSR.","Rourkela Steel Plant in Odisha was established with collaboration from West Germany.","Durgapur Steel Plant in West Bengal was built with collaboration from Russia."],
+ ["जमशेदपुर में TISCO की स्थापना 1907 में पहले निजी क्षेत्र के इस्पात संयंत्र के रूप में हुई थी।","भिलाई इस्पात संयंत्र की स्थापना छत्तीसगढ़ में सोवियत संघ (USSR) की तकनीकी सहायता से की गई थी।","ओडिशा में राउरकेला इस्पात संयंत्र की स्थापना पश्चिम जर्मनी के सहयोग से की गई थी।","पश्चिम बंगाल में दुर्गापुर इस्पात संयंत्र की स्थापना रूस के सहयोग से की गई थी।"],
+ ["1,2,3","1,4","2,3","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because the Durgapur Steel Plant was established with the collaboration of Britain (United Kingdom), not Russia.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि दुर्गापुर इस्पात संयंत्र ब्रिटेन (United Kingdom) के सहयोग से स्थापित किया गया था, न कि रूस के सहयोग से।",
+ "Bhilai–USSR · Rourkela–W. Germany · Durgapur–UK · Bokaro–USSR."),
+
+SQ(IND,"Statements regarding the Cotton Textile Industry in India:","भारत में सूती वस्त्र उद्योग के संबंध में कथन:",
+ ["The first successful modern cotton textile mill was established in Mumbai in 1854.","Mumbai is known as the 'Cottonopolis of India' due to high concentration of mills.","Ahmedabad is widely known as the 'Manchester of India'.","Coimbatore is popularly known as the 'Manchester of North India'."],
+ ["भारत की पहली सफल आधुनिक सूती वस्त्र मिल 1854 में मुंबई में स्थापित की गई थी।","सूती वस्त्र मिलों के उच्च संकेंद्रण के कारण मुंबई को 'कॉटनोपोलिस ऑफ इंडिया' कहा जाता है।","अहमदाबाद को 'भारत का मैनचेस्टर' कहा जाता है।","कोयंबटूर को 'उत्तर भारत का मैनचेस्टर' कहा जाता है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Coimbatore is called the 'Manchester of South India'; the 'Manchester of North India' is Kanpur.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि कोयंबटूर को 'दक्षिण भारत का मैनचेस्टर' कहा जाता है; 'उत्तर भारत का मैनचेस्टर' कानपुर को कहा जाता है।",
+ "Coimbatore = South; Kanpur = North."),
+
+SQ(IND,"Statements regarding the Fertilizer Industry in India:","भारत में उर्वरक उद्योग के संबंध में कथन:",
+ ["The first superphosphate fertilizer plant in India was set up at Ranipet (Tamil Nadu) in 1906.","FCI (Fertilizer Corporation of India) set up its major plant at Sindri (Jharkhand) in 1951.","India is completely self-sufficient in Potash fertilizers and imports none.","Hazira-Vijaipur-Jagdishpur (HVJ) pipeline supplies natural gas to key fertilizer plants."],
+ ["भारत में पहला सुपरफॉस्फेट उर्वरक संयंत्र 1906 में रानीपेट (तमिलनाडु) में स्थापित किया गया था।","सिंदरी (झारखंड) में एफसीआई का प्रमुख उर्वरक संयंत्र 1951 में स्थापित किया गया था।","भारत पोटाश उर्वरकों में पूरी तरह से आत्मनिर्भर है और इसका आयात नहीं करता है।","हजीरा-विजयपुर-जगदीशपुर (HVJ) पाइपलाइन प्रमुख उर्वरक संयंत्रों को प्राकृतिक गैस की आपूर्ति करती है।"],
+ ["1,2,4","1,3","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because India has no commercial reserves of potash (K), so India is 100% dependent on imports for potash fertilizers.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि भारत में पोटाश (K) का कोई व्यावसायिक भंडार नहीं है, इसलिए भारत पोटाश उर्वरकों के लिए 100% आयात पर निर्भर है।",
+ "India: potash 100% imported."),
+
+SQ(IND,"Statements regarding Aluminium Smelting and Sugar Industry:","एल्युमीनियम स्मेल्टिंग और चीनी उद्योग के संबंध में कथन:",
+ ["Bauxite is the primary raw material used for the production of aluminium.","Availability of continuous, cheap electricity is a major factor in locating aluminium plants.","In recent years, sugar industry has been shifting towards South India due to higher sucrose content in sugarcane.","Sugarcane is a weight-gaining raw material that can be transported over long distances without loss."],
+ ["बॉक्साइट एल्युमीनियम के उत्पादन के लिए उपयोग किया जाने वाला प्राथमिक कच्चा माल है।","निरंतर और सस्ती बिजली की उपलब्धता एल्युमीनियम संयंत्र स्थापित करने का एक मुख्य कारक है।","हाल के वर्षों में गन्ने में सुक्रोज की उच्च मात्रा के कारण चीनी उद्योग दक्षिण भारत की ओर स्थानांतरित हो रहा है।","गन्ना वजन बढ़ाने वाला कच्चा माल है जिसे बिना किसी नुकसान के लंबी दूरी तक ले जाया जा सकता है।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because sugarcane is a weight-losing and perishable raw material that needs crushing immediately after harvesting.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि गन्ना एक वजन घटाने वाला (weight-losing) तथा नाशवान कच्चा माल है, जिसे काटने के तुरंत बाद पेराई की आवश्यकता होती है।",
+ "Sugarcane loses weight & sucrose after cutting → mills near fields."),
+
+SQ(IND,"Statements regarding Industrial Regions of India:","भारत के औद्योगिक प्रदेशों के संबंध में कथन:",
+ ["The Hugli Industrial Region developed around the jute and tea industries and Kolkata port.","The Mumbai-Pune Industrial Region is famous for textiles, chemicals, and engineering goods.","Chota Nagpur Industrial Region is known as the 'Ruhr of India' due to rich mineral wealth.","Bengaluru-Tamil Nadu Industrial Region relies primarily on coal reserves located within Karnataka."],
+ ["हुगली औद्योगिक प्रदेश का विकास जूट व चाय उद्योग तथा कोलकाता बंदरगाह के आसपास हुआ।","मुंबई-पुणे औद्योगिक प्रदेश सूती वस्त्र, रसायन और इंजीनियरिंग सामान के लिए प्रसिद्ध है।","खनिज संपन्नता के कारण छोटानागपुर औद्योगिक प्रदेश को 'भारत का रूर' कहा जाता है।","बेंगलुरु-तमिलनाडु औद्योगिक प्रदेश मुख्य रूप से कर्नाटक में स्थित कोयला भंडारों पर निर्भर है।"],
+ ["1,2,3","2,4","1,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because Karnataka has no coal reserves; this region mainly depends on the Sharavati and Pykara hydel projects.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि कर्नाटक में कोयले के भंडार नहीं हैं; यह क्षेत्र मुख्यतः शरावती व पाइकारा जलविद्युत परियोजनाओं पर निर्भर है।",
+ "Chota Nagpur = 'Ruhr of India'."),
+
+MQ(IND,"Match List-I (Steel Plant) with List-II (Assisting Foreign Country / Entity):","सूची-I (इस्पात संयंत्र) को सूची-II (सहायक विदेशी देश) से सुमेलित करें:",
+ ["A. Bhilai / भिलाई","B. Rourkela / राउरकेला","C. Durgapur / दुर्गापुर","D. Bokaro / बोकारो"],
+ ["1. United Kingdom / यूनाइटेड किंगडम (ब्रिटेन)","2. USSR (Russia) / सोवियत संघ (रूस)","3. West Germany / पश्चिम जर्मनी","4. USSR (Russia) / सोवियत संघ (रूस)"],
+ ["A-2,B-3,C-1,D-4","A-1,B-2,C-3,D-4","A-3,B-4,C-1,D-2","A-2,B-1,C-4,D-3"],0,
+ "Bhilai (Chhattisgarh) was built with USSR help (A-2); Rourkela (Odisha) with West Germany's help (B-3); Durgapur (West Bengal) with Britain's help (C-1); Bokaro (Jharkhand) with USSR help (D-4).",
+ "भिलाई (छत्तीसगढ़) सोवियत संघ के सहयोग से बना (A-2); राउरकेला (ओडिशा) पश्चिम जर्मनी के सहयोग से बना (B-3); दुर्गापुर (पश्चिम बंगाल) ब्रिटेन के सहयोग से बना (C-1); बोकारो (झारखंड) सोवियत संघ के सहयोग से बना (D-4)।",
+ "Mnemonic: Bhilai-Russia, Rourkela-Germany, Durgapur-Britain."),
+
+MQ(IND,"Match List-I (Industrial City) with List-II (Associated Main Industry):","सूची-I (औद्योगिक शहर) को सूची-II (संबंधित मुख्य उद्योग) से सुमेलित करें:",
+ ["A. Nepanagar / नेपानगर","B. Chittaranjan / चितरंजन","C. Sindri / सिंदरी","D. Korba / कोरबा"],
+ ["1. Locomotive / रेल इंजन","2. Newsprint Paper / अखबारी कागज","3. Chemical Fertilizer / रासायनिक उर्वरक","4. Aluminium / एल्युमीनियम"],
+ ["A-2,B-1,C-3,D-4","A-1,B-2,C-4,D-3","A-3,B-4,C-1,D-2","A-2,B-3,C-1,D-4"],0,
+ "Nepanagar (Madhya Pradesh) is famous for newsprint paper (A-2); Chittaranjan (West Bengal) for locomotive manufacture (B-1); Sindri (Jharkhand) for chemical fertilizer (C-3); Korba (Chhattisgarh) for the aluminium industry (D-4).",
+ "नेपानगर (मध्य प्रदेश) अखबारी कागज के लिए प्रसिद्ध है (A-2); चितरंजन (पश्चिम बंगाल) रेल इंजन निर्माण के लिए प्रसिद्ध है (B-1); सिंदरी (झारखंड) रासायनिक उर्वरक के लिए (C-3); कोरबा (छत्तीसगढ़) एल्युमीनियम उद्योग के लिए (D-4)।",
+ "Chittaranjan = Locomotive Works (CLW)."),
+
+MQ(IND,"Match List-I (Industrial Title / Nickname) with List-II (Indian City / Region):","सूची-I (औद्योगिक उपनाम) को सूची-II (भारतीय शहर / क्षेत्र) से सुमेलित करें:",
+ ["A. Detroit of Asia / एशिया का डेट्रॉयट","B. Manchester of South India / दक्षिण भारत का मैनचेस्टर","C. Manchester of North India / उत्तर भारत का मैनचेस्टर","D. Boston of India / भारत का बोस्टन"],
+ ["1. Ahmedabad / अहमदाबाद","2. Chennai / चेन्नई","3. Coimbatore / कोयंबटूर","4. Kanpur / कानपुर"],
+ ["A-2,B-3,C-4,D-1","A-1,B-2,C-3,D-4","A-3,B-4,C-1,D-2","A-4,B-1,C-2,D-3"],0,
+ "Chennai is called the 'Detroit of Asia' (A-2) due to its automobile hub; Coimbatore is the 'Manchester of South India' (B-3); Kanpur is the 'Manchester of North India' (C-4); Ahmedabad is called the 'Boston of India' (D-1).",
+ "ऑटोमोबाइल हब होने के कारण चेन्नई को 'एशिया का डेट्रॉयट' कहते हैं (A-2); कोयंबटूर को 'दक्षिण भारत का मैनचेस्टर' कहते हैं (B-3); कानपुर को 'उत्तर भारत का मैनचेस्टर' कहते हैं (C-4); अहमदाबाद को 'भारत का बोस्टन' कहा जाता है (D-1)।",
+ "Nicknames are favourites in Bihar Police / BPSC papers."),
+
+P(IND,"Where was the first modern paper mill in India successfully established in 1870?","1870 में भारत की पहली सफल आधुनिक पेपर मिल कहाँ स्थापित की गई थी?",["Serampore / श्रीरामपुर","Ballygunge / बालीगंज","Nepanagar / नेपानगर","Titagarh / टीटागढ़"],1,
+ "The first successful modern paper mill in India was established in 1870 at Ballygunge (near Calcutta, West Bengal). Later mills followed at Lucknow in 1881 and Titagarh in 1882.",
+ "भारत में पहली सफल आधुनिक पेपर मिल 1870 में बालीगंज (कलकत्ता के पास, पश्चिम बंगाल) में स्थापित की गई थी। इसके बाद 1881 में लखनऊ में और 1882 में टीटागढ़ में मिल स्थापित हुई।",
+ "Paper mill: Ballygunge 1870 → Lucknow 1881 → Titagarh 1882."),
+
+P(IND,"Which city in India is popularly known as the 'Silicon Valley of India' due to its status as the leading IT exporter?","अग्रणी आईटी निर्यातक होने के कारण भारत के किस शहर को लोकप्रिय रूप से 'भारत की सिलिकॉन वैली' कहा जाता है?",["Hyderabad / हैदराबाद","Pune / पुणे","Bengaluru / बेंगलुरु","Noida / नोएडा"],2,
+ "Bengaluru (Karnataka) is called the 'Silicon Valley of India' because it is India's leading Information Technology (IT) hub.",
+ "बेंगलुरु (कर्नाटक) को भारत का प्रमुख सूचना प्रौद्योगिकी (IT) हब होने के कारण 'भारत की सिलिकॉन वैली' कहा जाता है।",
+ "Bengaluru = Silicon Valley of India (also 'Garden City')."),
+
+SQ(HS,"Statements regarding the Western Ghats Biodiversity Hotspot:","पश्चिमी घाट जैव विविधता हॉटस्पॉट के संबंध में कथन:",
+ ["It spans across six Indian states: Gujarat, Maharashtra, Goa, Karnataka, Kerala, and Tamil Nadu.","Lion-tailed Macaque and Nilgiri Tahr are endemic species found in this hotspot.","It is officially recognized as a UNESCO World Heritage Site.","The Aravalli and Satpura ranges form the main core of this biodiversity hotspot."],
+ ["यह छह भारतीय राज्यों में फैला हुआ है: गुजरात, महाराष्ट्र, गोवा, कर्नाटक, केरल और तमिलनाडु।","लायन-टैल्ड मकाक और नीलगिरि तहर इस हॉटस्पॉट में पाई जाने वाली स्थानिक (endemic) प्रजातियां हैं।","इसे यूनेस्को द्वारा आधिकारिक तौर पर विश्व धरोहर स्थल के रूप में मान्यता प्राप्त है।","अरावली और सतपुड़ा श्रेणियां इस जैव विविधता हॉटस्पॉट का मुख्य भाग बनाती हैं।"],
+ ["1,2,3","1,4","2,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because the Western Ghats (Sahyadri) is the mountain chain running from south of the Tapi river to Kanyakumari; the Aravalli (Rajasthan) and Satpura are not part of this hotspot.",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि पश्चिमी घाट (सह्याद्रि) तापी नदी के दक्षिण से लेकर कन्याकुमारी तक फैली पर्वत श्रृंखला है; अरावली (राजस्थान) और सतपुड़ा इस हॉटस्पॉट का हिस्सा नहीं हैं।",
+ "Western Ghats: UNESCO World Heritage Site (2012)."),
+
+SQ(HS,"Statements regarding Biodiversity Hotspots associated with India:","भारत से जुड़े जैव विविधता हॉटस्पॉट के संबंध में कथन:",
+ ["India represents four global biodiversity hotspots: Himalayas, Indo-Burma, Sundaland, and Western Ghats.","The term 'Biodiversity Hotspot' was first introduced by British ecologist Norman Myers in 1988.","To qualify as a hotspot, a region must contain at least 1,500 species of vascular plants as endemics.","Nicobar Islands form a part of the Indo-Burma biodiversity hotspot."],
+ ["भारत चार वैश्विक हॉटस्पॉट का प्रतिनिधित्व करता है: हिमालय, इंडो-बर्मा, सुंडालैंड और पश्चिमी घाट।","'जैव विविधता हॉटस्पॉट' शब्द पहली बार 1988 में ब्रिटिश पारिस्थितिक विज्ञानी नॉर्मन मायर्स द्वारा दिया गया था।","हॉटस्पॉट बनने के लिए किसी क्षेत्र में कम से कम 1,500 स्थानिक संवहनी पौधे (vascular plants) होने चाहिए।","निकोबार द्वीप समूह इंडो-बर्मा जैव विविधता हॉटस्पॉट का हिस्सा है।"],
+ ["1,2,3","1,4","3,4","1,2,3,4"],0,
+ "Statements 1, 2 and 3 are correct. Statement 4 is incorrect because the Nicobar Islands are part of the Sundaland hotspot, not Indo-Burma (the Andaman Islands are part of Indo-Burma).",
+ "कथन 1, 2 और 3 सही हैं। कथन 4 गलत है क्योंकि निकोबार द्वीप समूह सुंडालैंड (Sundaland) हॉटस्पॉट का हिस्सा हैं, न कि इंडो-बर्मा का (अंडमान द्वीप समूह इंडो-बर्मा का हिस्सा हैं)।",
+ "Nicobar → Sundaland; Andaman → Indo-Burma."),
+
+MQ(HS,"Match List-I (Indian Biodiversity Hotspot) with List-II (Geographical Region / Coverage):","सूची-I (भारतीय जैव विविधता हॉटस्पॉट) को सूची-II (भौगोलिक क्षेत्र) से सुमेलित करें:",
+ ["A. Himalayas / हिमालय","B. Indo-Burma / इंडो-बर्मा","C. Sundaland / सुंडालैंड","D. Western Ghats / पश्चिमी घाट"],
+ ["1. Nicobar Islands group / निकोबार द्वीप समूह","2. Entire North-East India (except Assam plains) & Andaman Islands / संपूर्ण उत्तर-पूर्व भारत व अंडमान","3. Western Coastal Plains and Sahyadri Mountains / पश्चिमी तटीय मैदान व सह्याद्रि","4. North-Western & Eastern Himalayan Belt / उत्तर-पश्चिमी व पूर्वी हिमालय पट्टी"],
+ ["A-4,B-2,C-1,D-3","A-1,B-2,C-3,D-4","A-4,B-1,C-2,D-3","A-2,B-3,C-4,D-1"],0,
+ "The Himalaya hotspot covers the North-Western & Eastern Himalayan belt (A-4); Indo-Burma covers North-East India and the Andaman Islands (B-2); Sundaland includes the Nicobar Islands group (C-1); the Western Ghats hotspot includes the Sahyadri mountain chain (D-3).",
+ "हिमालय हॉटस्पॉट में उत्तर-पश्चिमी व पूर्वी हिमालय पट्टी आती है (A-4); इंडो-बर्मा में उत्तर-पूर्व भारत और अंडमान शामिल हैं (B-2); सुंडालैंड में निकोबार द्वीप समूह शामिल है (C-1); पश्चिमी घाट में सह्याद्रि पर्वत श्रृंखला शामिल है (D-3)।",
+ "India's 4 hotspots: Himalaya, Indo-Burma, Sundaland, Western Ghats."),
+
+MQ(HS,"Match List-I (Key Endemic / Flagship Species) with List-II (Respective Biodiversity Hotspot):","सूची-I (प्रमुख स्थानिक/ध्वजपोत प्रजाति) को सूची-II (संबंधित जैव विविधता हॉटस्पॉट) से सुमेलित करें:",
+ ["A. Snow Leopard & Red Panda / हिम तेंदुआ और रेड पांडा","B. Lion-tailed Macaque / लायन-टैल्ड मकाक","C. Nicobar Megapode / निकोबार मेगापोड","D. Hoolock Gibbon / हुलोक गिब्बन"],
+ ["1. Sundaland (Nicobar) / सुंडालैंड","2. Himalayas / हिमालय","3. Indo-Burma / इंडो-बर्मा","4. Western Ghats / पश्चिमी घाट"],
+ ["A-2,B-4,C-1,D-3","A-1,B-2,C-3,D-4","A-2,B-1,C-4,D-3","A-3,B-4,C-1,D-2"],0,
+ "Snow Leopard and Red Panda are found in the Himalayas hotspot (A-2); Lion-tailed Macaque in the Western Ghats (B-4); Nicobar Megapode in Sundaland (Nicobar) (C-1); and the Hoolock Gibbon, India's only ape, in the Indo-Burma region (D-3).",
+ "हिम तेंदुआ और रेड पांडा हिमालय हॉटस्पॉट में पाए जाते हैं (A-2); लायन-टैल्ड मकाक पश्चिमी घाट में (B-4); निकोबार मेगापोड सुंडालैंड (निकोबार) में (C-1); और भारत का एकमात्र लंगूर/गिब्बन (हुलोक गिब्बन) इंडो-बर्मा क्षेत्र में पाया जाता है (D-3)।",
+ "Hoolock Gibbon = India's only ape (North-East)."),
+
+SQ(SP,"Statements regarding Games and their designated Playing Areas:","खेल और उनके निर्दिष्ट खेलने के स्थानों के संबंध में कथन:",
+ ["The playing area of Baseball is called a 'Diamond'.","Cycling tracks used in professional racing are known as 'Velodromes'.","The playing area for Golf is called a 'Court'.","Boxing and Wrestling matches are held inside a 'Ring'."],
+ ["बेसबॉल का खेल परिसर (मैदान) 'डायमंड' कहलाता है।","पेशेवर रेसिंग में उपयोग किए जाने वाले साइकिलिंग ट्रैक को 'वेलोड्रम' कहा जाता है।","गोल्फ के खेलने के स्थान को 'कोर्ट' कहा जाता है।","बॉक्सिंग और कुश्ती के मैच 'रिंग' के भीतर आयोजित किए जाते हैं।"],
+ ["1,2,4","1,3","2,3","1,2,3,4"],0,
+ "Statements 1, 2 and 4 are correct. Statement 3 is incorrect because the playing area of Golf is called a 'Course', not a 'Court'.",
+ "कथन 1, 2 और 4 सही हैं। कथन 3 गलत है क्योंकि गोल्फ खेलने का स्थान 'कोर्स' (Course) कहलाता है, न कि 'कोर्ट' (Court)।",
+ "Golf → Course; Tennis/Badminton → Court."),
+
+MQ(SP,"Match List-I (Sport / Game) with List-II (Name of Playing Area):","सूची-I (खेल) को सूची-II (खेलने के स्थान का नाम) से सुमेलित करें:",
+ ["A. Tennis / टेनिस","B. Swimming / तैराकी","C. Cricket / क्रिकेट","D. Skating / स्केटिंग"],
+ ["1. Pitch / पिच","2. Court / कोर्ट","3. Pool / पूल","4. Rink / रिंक"],
+ ["A-2,B-3,C-1,D-4","A-1,B-2,C-3,D-4","A-3,B-4,C-1,D-2","A-2,B-1,C-4,D-3"],0,
+ "Tennis is played on a Court (A-2); Swimming in a Pool (B-3); Cricket on a Pitch (C-1); Skating on a Rink (D-4).",
+ "टेनिस 'कोर्ट' पर खेला जाता है (A-2); तैराकी 'पूल' में (B-3); क्रिकेट 'पिच' पर (C-1); स्केटिंग 'रिंक' पर (D-4)।",
+ "Tennis–Court · Swimming–Pool · Cricket–Pitch · Skating–Rink."),
+
+MQ(SP,"Match List-I (Sport / Game) with List-II (Name of Playing Area):","सूची-I (खेल) को सूची-II (खेलने के स्थान का नाम) से सुमेलित करें:",
+ ["A. Archery / तीरंदाजी","B. Judo / जुडो","C. Table Tennis / टेबल टेनिस","D. Athletics / एथलेटिक्स"],
+ ["1. Mat / मैट","2. Target / टारगेट (रेंज)","3. Board / बोर्ड","4. Track / ट्रैक"],
+ ["A-2,B-1,C-3,D-4","A-1,B-2,C-4,D-3","A-2,B-3,C-1,D-4","A-4,B-1,C-2,D-3"],0,
+ "The archery area is a 'Target/Range' (A-2); Judo and Karate are played on a 'Mat' (B-1); the Table Tennis playing surface is called a 'Board' (C-3); and Athletics is held on a running 'Track' (D-4).",
+ "तीरंदाजी का परिसर 'टारगेट/रेंज' कहलाता है (A-2); जुडो और कराटे 'मैट' पर खेले जाते हैं (B-1); टेबल टेनिस का खेल सतह 'बोर्ड' कहलाता है (C-3); और एथलेटिक्स दौड़ 'ट्रैक' पर आयोजित होती है (D-4)।",
+ "Judo → Mat (Tatami)."),
+
+MQ(SP,"Match List-I (Sport / Game) with List-II (Name of Playing Area):","सूची-I (खेल) को सूची-II (खेलने के स्थान का नाम) से सुमेलित करें:",
+ ["A. Horse Riding / घुड़सवारी","B. Bowling / बॉलिंग","C. Curling / कर्लिंग","D. Football / फुटबॉल"],
+ ["1. Alley / एली","2. Arena / एरिना","3. Field / फील्ड","4. Sheet / शीट"],
+ ["A-2,B-1,C-4,D-3","A-1,B-2,C-3,D-4","A-3,B-4,C-1,D-2","A-2,B-4,C-1,D-3"],0,
+ "The Horse Riding ground is called an 'Arena' (A-2); Bowling is played in an 'Alley' (B-1); Curling is played on an ice 'Sheet' (C-4); and the Football ground is called a 'Field/Pitch' (D-3).",
+ "घुड़सवारी के मैदान को 'एरिना' (Arena) कहते हैं (A-2); बॉलिंग खेल 'एली' (Alley) में खेला जाता है (B-1); कर्लिंग बर्फ की 'शीट' (Sheet) पर खेली जाती है (C-4); और फुटबॉल के मैदान को 'फील्ड/पिच' कहते हैं (D-3)।",
+ "Curling → Sheet of ice."),
+
+MQ(SP,"Match List-I (Playing Area Name) with List-II (Associated Sport):","सूची-I (खेल मैदान का नाम/टर्मिनोलॉजी) को सूची-II (संबंधित खेल) से सुमेलित करें:",
+ ["A. Velodrome / वेलोड्रम","B. Diamond / डायमंड","C. Course / कोर्स","D. Rink / रिंक"],
+ ["1. Golf / गोल्फ","2. Cycling / साइकिल चालन","3. Ice Hockey / आइस हॉकी","4. Baseball / बेसबॉल"],
+ ["A-2,B-4,C-1,D-3","A-1,B-2,C-3,D-4","A-4,B-2,C-1,D-3","A-2,B-1,C-4,D-3"],0,
+ "The cycling track is called a 'Velodrome' (A-2); the Baseball ground is called a 'Diamond' (B-4); the Golf playing ground is called a 'Course' (C-1); and the area for Ice Hockey or skating is called a 'Rink' (D-3).",
+ "साइकिल ट्रैकिंग का मैदान 'वेलोड्रम' कहलाता है (A-2); बेसबॉल का मैदान 'डायमंड' कहलाता है (B-4); गोल्फ खेलने का मैदान 'कोर्स' कहलाता है (C-1); और आइस हॉकी या स्केटिंग का क्षेत्र 'रिंक' कहलाता है (D-3)।",
+ "Velodrome–Cycling · Diamond–Baseball · Course–Golf · Rink–Ice Hockey."),
+
+P(SP,"The playing area used for the game of Badminton is officially designated as which of the following?","बैडमिंटन खेल के लिए उपयोग किए जाने वाले खेल क्षेत्र को आधिकारिक तौर पर क्या कहा जाता है?",["Court / कोर्ट","Arena / एरिना","Board / बोर्ड","Field / फील्ड"],0,
+ "The rectangular marked area in which Badminton is played is called a Court. Its length is 44 feet and its width is 20 feet (for doubles).",
+ "बैडमिंटन जिस आयताकार निर्धारित क्षेत्र में खेला जाता है, उसे कोर्ट (Court) कहा जाता है। इसकी लंबाई 44 फीट और चौड़ाई 20 फीट (डबल्स के लिए) होती है।",
+ "Court sports: Badminton, Tennis, Basketball, Volleyball."),
+];
+
+const TAGLINES=["🔥 BRAIN BLAST!","🧠 CAN YOU CRACK IT?","🎯 EXAM TRAP!","🚨 DON'T FALL FOR THE TRAP!","🏆 BOSS LEVEL!"];
+const MOTIVATE=["ध्यान से सोचिए… इसमें एक ट्रैप है! 👀","जवाब लॉक करने से पहले अच्छी तरह सोच लें! 🔒","जल्दबाजी न करें—हर विकल्प ध्यान से पढ़ें! 🎯","दिमाग लगाइए, यह सवाल आपकी परीक्षा में आ सकता है! 💪","एक गहरी सांस लें और ध्यान से पढ़ें! 🧘"];
+function shuffleTag(arr,i){return arr[i % arr.length];}
+
+const state={idx:0,score:0,correctCount:0,wrongCount:0,answered:false,timer:null,timeLeft:TOTAL_TIME,name:""};
+const app=document.getElementById('app');
+
+function renderStart(){
+  app.innerHTML=`
+    <div class="hero">
+      <div class="tagline">🎮 GAME-SHOW QUIZ CHALLENGE 🎮</div>
+      <h1>ROUTINE-9</h1>
+      <p>Daroga / Police / BPSC / BSSC · Bilingual Game-Show Quiz · ${QUESTIONS.length} Questions</p>
+    </div>
+    <div class="card">
+      <p style="color:var(--dim);font-size:14px;margin-bottom:10px;">Enter your name to begin / शुरू करने के लिए अपना नाम दर्ज करें:</p>
+      <input type="text" id="nameInput" placeholder="Your Name / आपका नाम" />
+      <div class="center"><button class="btn" id="startBtn">🚀 Start Quiz / शुरू करें</button></div>
+    </div>
+    <div class="card" style="font-size:13px;color:var(--dim);line-height:1.6;">
+      📚 Topics: Modern History, Human Digestion &amp; Nutrition, Mountain Peaks, Indian Industries, Biodiversity Hotspots, Sports Terms<br>
+      ⏱️ ${TOTAL_TIME} seconds per question &nbsp;|&nbsp; 🏆 Scoreboard every 10 questions
+    </div>
+  `;
+  document.getElementById('startBtn').onclick=()=>{
+    state.name=document.getElementById('nameInput').value.trim()||"Champion";
+    renderQuestion();
+  };
+}
+
+function renderQuestion(){
+  if(state.idx>=QUESTIONS.length){renderFinal();return;}
+  const q=QUESTIONS[state.idx];
+  state.answered=false;
+  state.timeLeft=TOTAL_TIME;
+  let matchHtml="";
+  if(q.matchTable){
+    matchHtml=`<div class="matchbox">
+      <div class="matchcol"><h4>List-I</h4>${q.matchTable.left.map(x=>`<div class="matchrow">${x}</div>`).join('')}</div>
+      <div class="matchcol"><h4>List-II</h4>${q.matchTable.right.map(x=>`<div class="matchrow">${x}</div>`).join('')}</div>
+    </div>`;
+  }
+  app.innerHTML=`
+    <div class="scorebar"><span>Q ${state.idx+1} / ${QUESTIONS.length}</span><span>Score: <b>${state.score}</b></span></div>
+    <div class="card">
+      <div class="taghead">
+        <span class="tagline">${shuffleTag(TAGLINES,state.idx)}</span>
+        <span class="cat-tag">${q.cat}</span>
+      </div>
+      <div class="timer-wrap"><div class="timer-ring" id="ring" style="--pct:100"><div class="timer-inner" id="timerNum">${TOTAL_TIME}</div></div></div>
+      <p class="motivate">${shuffleTag(MOTIVATE,state.idx)}</p>
+      <div class="qtext">${q.en}<br><br><b>प्र.</b> ${q.hi}</div>
+      ${matchHtml}
+      <div class="options" id="optionsWrap">
+        ${q.options.map((o,i)=>`<button class="opt" data-i="${i}">${String.fromCharCode(65+i)}. ${o.en} / ${o.hi}</button>`).join('')}
+      </div>
+      <div id="resultBox"></div>
+      <div class="next-row" id="nextRow" style="display:none;"><button class="btn" id="nextBtn">Next Question ➡️</button></div>
+    </div>
+  `;
+  document.querySelectorAll('.opt').forEach(btn=>{
+    btn.onclick=()=>selectAnswer(parseInt(btn.dataset.i));
+  });
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(state.timer);
+  const ring=document.getElementById('ring');
+  const numEl=document.getElementById('timerNum');
+  state.timer=setInterval(()=>{
+    state.timeLeft--;
+    const pct=Math.max(0,(state.timeLeft/TOTAL_TIME)*100);
+    if(ring){ring.style.setProperty('--pct',pct);}
+    if(numEl){numEl.textContent=Math.max(0,state.timeLeft);}
+    if(ring && pct<20){ring.classList.add('warn');}
+    if(state.timeLeft<=0 && !state.answered){
+      selectAnswer(-1);
+    }
+  },1000);
+}
+
+function selectAnswer(choice){
+  if(state.answered)return;
+  state.answered=true;
+  clearInterval(state.timer);
+  const q=QUESTIONS[state.idx];
+  const opts=document.querySelectorAll('.opt');
+  opts.forEach(b=>b.setAttribute('disabled','true'));
+  const isCorrect=choice===q.correct;
+  if(isCorrect){
+    state.score+=10;
+    state.correctCount++;
+    opts[choice].classList.add('correct');
+  }else{
+    state.wrongCount++;
+    if(choice>=0)opts[choice].classList.add('wrong');
+    opts[q.correct].classList.add('correct');
+  }
+  const resultBox=document.getElementById('resultBox');
+  const tipHtml=q.tip?`<p>💡 <b>Exam Tip:</b> ${q.tip}</p>`:"";
+  if(isCorrect){
+    resultBox.innerHTML=`<div class="result ok"><h3>🎉 CORRECT! 🔥</h3><p>🏆 Correct Answer: ${String.fromCharCode(65+q.correct)} — ${q.options[q.correct].en} / ${q.options[q.correct].hi}</p><p>📚 Why? ${q.exp_en}</p><p>${q.exp_hi}</p>${tipHtml}</div>`;
+  }else{
+    const timeUp=choice===-1;
+    const yours=timeUp?"":`<p>❎ Your Answer: ${String.fromCharCode(65+choice)} — ${q.options[choice].en} / ${q.options[choice].hi} — this is not correct.</p>`;
+    resultBox.innerHTML=`<div class="result bad"><h3>${timeUp?"⏰ TIME'S UP!":"❌ NOT QUITE!"}</h3>
+      <p>🏆 Correct Answer: ${String.fromCharCode(65+q.correct)} — ${q.options[q.correct].en} / ${q.options[q.correct].hi}</p>${yours}
+      <p>📚 Why? ${q.exp_en}</p>
+      <p>${q.exp_hi}</p>${tipHtml}</div>`;
+  }
+  document.getElementById('nextRow').style.display='block';
+  document.getElementById('nextBtn').onclick=()=>{
+    state.idx++;
+    if(state.idx%10===0 && state.idx>0){
+      showScoreboard(state.idx>=QUESTIONS.length);
+    }else{
+      renderQuestion();
+    }
+  };
+}
+
+function showScoreboard(isLast){
+  const total=state.correctCount+state.wrongCount;
+  const acc=total>0?Math.round((state.correctCount/total)*100):0;
+  let comment;
+  if(acc>=85)comment="🔥 You're on fire! Keep the momentum going!";
+  else if(acc>=60)comment="⚡ Solid performance! A little more focus and you'll ace it!";
+  else if(acc>=40)comment="💪 The traps are getting you—time to fight back!";
+  else comment="📘 Don't worry, every topper started somewhere. Keep pushing!";
+  const overlay=document.createElement('div');
+  overlay.className='overlay';
+  overlay.innerHTML=`
+    <div class="board">
+      <h2>🏆 QUIZ SCOREBOARD</h2>
+      <div class="stat"><span>✅ Correct:</span><b>${state.correctCount}</b></div>
+      <div class="stat"><span>❌ Incorrect:</span><b>${state.wrongCount}</b></div>
+      <div class="stat"><span>🎯 Accuracy:</span><b>${acc}%</b></div>
+      <div class="comment">${comment}</div>
+      <button class="btn" id="continueBtn">${isLast?"See Final Result 🏁":"Continue ➡️"}</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  document.getElementById('continueBtn').onclick=()=>{
+    overlay.remove();
+    if(isLast){renderFinal();}else{renderQuestion();}
+  };
+}
+
+function renderFinal(){
+  const total=state.correctCount+state.wrongCount;
+  const acc=total>0?Math.round((state.correctCount/total)*100):0;
+  let grade;
+  if(acc>=85)grade="🏆 TOPPER";
+  else if(acc>=65)grade="🥈 STRONG";
+  else if(acc>=40)grade="🥉 GROWING";
+  else grade="📘 KEEP GOING";
+  app.innerHTML=`
+    <div class="hero">
+      <h1>${grade}</h1>
+      <p>${state.name}, here's your final performance!</p>
+    </div>
+    <div class="card center">
+      <div class="stat" style="font-size:18px;margin:10px 0;">🏅 Final Score: <b>${state.score}</b></div>
+      <div class="stat" style="font-size:16px;margin:10px 0;">✅ Correct: ${state.correctCount} &nbsp; ❌ Incorrect: ${state.wrongCount}</div>
+      <div class="stat" style="font-size:16px;margin:10px 0;">🎯 Accuracy: ${acc}%</div>
+      <button class="btn" id="restartBtn">🔄 Restart Quiz / फिर से शुरू करें</button>
+    </div>
+  `;
+  document.getElementById('restartBtn').onclick=()=>{
+    state.idx=0;state.score=0;state.correctCount=0;state.wrongCount=0;
+    renderStart();
+  };
+}
+
+renderStart();
+
+</script>
+</body>
+</html>
